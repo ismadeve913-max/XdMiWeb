@@ -7,13 +7,12 @@ body {
   align-items: center;
   min-height: 100vh;
   /* Reemplaza la URL con la de tu imagen de fondo */
-  background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+  background-image: url('URL_DE_TU_IMAGEN_DE_FONDO.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Estilos para la pantalla de carga */
 #cargando {
   display: flex;
   justify-content: center;
@@ -37,18 +36,33 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Estilos para el contenido principal (el panel) */
 #contenido {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  border: none;
+  padding: 3px;
 }
 
-/* Estilos para la imagen circular */
+#contenido::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  bottom: -3px;
+  left: -3px;
+  background: linear-gradient(45deg, purple, blue, green, yellow, orange, red, purple);
+  border-radius: 10px;
+  z-index: -1;
+  background-size: 300%;
+  animation: color-border 5s linear infinite;
+}
+
 .imagen-circular-container {
   width: 120px;
   height: 120px;
@@ -56,6 +70,13 @@ body {
   overflow: hidden;
   margin-bottom: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  animation: girar 30s linear infinite;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  16.66% { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .imagen-circular {
@@ -64,7 +85,6 @@ body {
   object-fit: cover;
 }
 
-/* Estilos para los botones semitransparentes */
 .botones-container {
   display: flex;
   flex-direction: column;
@@ -82,26 +102,70 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: inline-block;
+  position: relative;
+  border: none;
+  padding: 2px;
 }
 
-.canal {
-  background-color: rgba(7, 94, 84, 0.7);
+.boton-whatsapp::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  background: linear-gradient(45deg, red, yellow, lime, aqua, blue, magenta, red);
+  border-radius: 52px;
+  z-index: -1;
+  background-size: 300%;
+  animation: color-border-button 3s linear infinite;
 }
 
-.grupo {
-  background-color: rgba(37, 211, 102, 0.7);
+.canal::before {
+  background: linear-gradient(45deg, red, orangered, crimson, red);
 }
 
-.numero {
-  background-color: rgba(18, 140, 126, 0.7);
+.grupo::before {
+  background: linear-gradient(45deg, blue, royalblue, navy, blue);
+}
+
+.numero::before {
+  background: linear-gradient(45deg, green, limegreen, forestgreen, green);
 }
 
 .boton-whatsapp:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 
-/* Estilos y animación para los créditos */
+@keyframes color-border {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+@keyframes color-border-button {
+  0% { background-position: 0 0; }
+  50% { background-position: 100% 0; }
+  100% { background-position: 0 0; }
+}
+
+.boton-especificaciones {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    background-color: #6c757d;
+}
+
+.boton-especificaciones:hover {
+    filter: brightness(1.2);
+}
+
 .creditos {
   margin-top: 30px;
   color: #555;
