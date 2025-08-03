@@ -155,6 +155,10 @@ body {
   filter: brightness(1.1);
 }
 
+.boton-estado {
+    background-color: #3498db; /* Azul */
+}
+
 @keyframes color-border {
   0% { background-position: 0 0; }
   50% { background-position: 100% 0; }
