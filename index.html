@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Atagox-Bot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="cargando">
+        <div class="cargador"></div>
+        <p class="texto-carga">Cargando...</p>
+    </div>
+
+    <div id="contenido" style="display: none;">
+        <div class="panel-container">
+            <div class="imagen-circular-container">
+                <img src="URL_DE_TU_IMAGEN_DE_PERFIL.jpg" alt="Imagen de perfil" class="imagen-circular">
+            </div>
+            
+            <h1 class="titulo">Atagox-Bot</h1>
+            <p class="subtitulo">Panel de control y enlaces</p>
+
+            <div class="botones-principales-container">
+                <button id="btn-whatsapp" class="boton-desplegable">Enlaces de WhatsApp</button>
+                <div id="enlaces-whatsapp" class="botones-secundarios-container" style="display:none;">
+                    <a href="https://wa.me/message/TU_ID_DE_CANAL" class="boton-whatsapp canal">Canal</a>
+                    <a href="https://chat.whatsapp.com/TU_ID_DE_GRUPO" class="boton-whatsapp grupo">Grupo</a>
+                    <a href="https://wa.me/NUMERO_DE_TELEFONO?text=Hola%20me%20interesa%20saber%20mas" class="boton-whatsapp numero">Número</a>
+                    <a href="https://wa.me/NUMERO_DE_ATAGOX?text=Hola%20me%20interesa%20saber%20mas" class="boton-whatsapp atagox">Atagox-Bot</a>
+                </div>
+
+                <button id="btn-paginas" class="boton-desplegable">Información del Bot</button>
+                <div id="enlaces-paginas" class="botones-secundarios-container" style="display:none;">
+                    <a href="especificaciones.html" class="boton-pagina">Comandos</a>
+                    <a href="estado.html" class="boton-pagina">Estado y Registro</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="creditos">
+            <p>Create Cuervo-Team-Supreme By Atagox-Bot</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
