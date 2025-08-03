@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especificaciones</title>
+    <link rel="stylesheet" href="styles_especificaciones.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Especificaciones Detalladas</h1>
+
+        <input type="text" id="buscador" placeholder="Buscar por categoría o palabra clave...">
+
+        <div class="categoria">
+            <h2 class="color-morado">Categoría Administracion</h2>
+            <ul>
+                <li><span id="boton-kick">Kick</span></li>
+                <li>Elimina al usuario</li>
+            </ul>
+        </div>
+
+        <button onclick="window.history.back()">Volver</button>
+    </div>
+    
+    <div id="interfaz-kick" class="interfaz-oculta">
+      <div class="contenido-interfaz">
+        <span class="cerrar-btn" id="cerrar-interfaz">&times;</span>
+        <h2>Uso del botón "Kick"</h2>
+        <p>Este botón se utiliza para eliminar a un usuario de forma temporal o permanente de un grupo o canal. Al usar esta función, el usuario ya no podrá participar hasta que se le vuelva a dar acceso.</p>
+      </div>
+    </div>
+
+    <script src="especificaciones.js"></script>
+</body>
+</html>
