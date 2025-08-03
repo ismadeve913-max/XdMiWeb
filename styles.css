@@ -1,18 +1,26 @@
+:root {
+    --color-principal: #3498db;
+    --color-secundario: #25d366;
+    --color-terciario: #e74c3c;
+    --duracion-animacion-brillo: 30s;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* Reemplaza la URL con la de tu imagen de fondo */
     background-image: url('URL_DE_TU_IMAGEN_DE_FONDO.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: white; /* Color del texto principal */
+    color: #fff;
+    overflow: hidden;
 }
 
+/* Pantalla de carga */
 #cargando {
     display: flex;
     flex-direction: column;
@@ -23,21 +31,17 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Reemplaza la URL con la de tu imagen de fondo para la carga */
-    background-image: url('URL_DE_TU_IMAGEN_DE_CARGA.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 9999;
 }
 
 .cargador {
     border: 8px solid #f3f3f3;
-    border-top: 8px solid #3498db;
+    border-top: 8px solid var(--color-principal);
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    animation: spin 2s linear infinite;
+    animation: spin 1.5s linear infinite;
     margin-bottom: 15px;
 }
 
@@ -47,7 +51,7 @@ body {
 }
 
 .texto-carga {
-    color: black;
+    color: #fff;
     font-size: 20px;
     font-weight: bold;
     animation: pulso 1.5s ease-in-out infinite;
@@ -58,26 +62,56 @@ body {
     50% { opacity: 0.5; }
 }
 
+/* Contenido principal */
 #contenido {
+    display: none;
     text-align: center;
     padding: 20px;
 }
 
-.imagen-circular-container {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-    border: 5px solid white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    animation: flotar 3s ease-in-out infinite;
+.panel-container {
+    width: 100%;
+    max-width: 500px;
+    background-color: rgba(20, 20, 20, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    /* ¡CAMBIO AQUÍ! Configuración del layout vertical */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
-@keyframes flotar {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+.titulo {
+    font-size: 2.8em;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.subtitulo {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+/* Imagen circular con animación */
+.imagen-circular-container {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 30px;
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: rotacion-larga 30s linear infinite;
+}
+
+@keyframes rotacion-larga {
+    0% { transform: rotate(0deg); }
+    16.67% { transform: rotate(360deg); } /* Gira en los primeros 5s (5/30 = 16.67%) */
+    100% { transform: rotate(360deg); }
 }
 
 .imagen-circular {
@@ -87,99 +121,123 @@ body {
     display: block;
 }
 
-h1 {
-    font-size: 2.5em;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-p {
-    font-size: 1.2em;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.botones-container {
-    margin-top: 20px;
+/* Contenedor de botones */
+.botones-principales-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
 }
 
+.botones-secundarios-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    animation: fadein 0.5s ease-out;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos de botones */
+.boton-desplegable,
 .boton-whatsapp,
-.boton-especificaciones,
-.boton-estado { /* NUEVO ESTILO */
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-decoration: none;
+.boton-pagina {
+    padding: 15px;
+    border-radius: 10px;
     font-weight: bold;
-    color: white;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%; /* Asegura que los botones ocupen todo el ancho */
 }
 
+.boton-desplegable:hover,
 .boton-whatsapp:hover,
-.boton-especificaciones:hover,
-.boton-estado:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+.boton-pagina:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
-.canal {
-    background-color: #25d366; /* Verde de WhatsApp */
+/* Animación de contorno para los botones principales */
+.boton-desplegable {
+    position: relative;
+    background-color: var(--color-principal);
+    overflow: hidden;
+    color: #fff;
+    font-size: 1.1em;
 }
 
-.grupo {
-    background-color: #128c7e; /* Verde oscuro de WhatsApp */
+.boton-desplegable::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, transparent, transparent, #fff);
+    animation: brillar var(--duracion-animacion-brillo) linear infinite;
 }
 
-.numero {
-    background-color: #075e54; /* Verde muy oscuro de WhatsApp */
+@keyframes brillar {
+    0% { transform: rotate(0deg); opacity: 1; }
+    66.67% { transform: rotate(360deg); opacity: 1; } /* 20s de brillo */
+    70% { opacity: 0.5; }
+    75% { opacity: 1; }
+    80% { opacity: 0.5; }
+    85% { opacity: 1; }
+    90% { opacity: 0.5; }
+    95% { opacity: 1; }
+    100% { opacity: 0; } /* 10s de parpadeo y apagado */
 }
 
-.boton-especificaciones {
-    background-color: #6a1b9a; /* Morado */
-}
+/* Estilos de botones de WhatsApp */
+.canal { background-color: #25d366; }
+.grupo { background-color: #128c7e; }
+.numero { background-color: #075e54; }
+.atagox { background-color: #3f51b5; }
+.boton-pagina { background-color: #6a1b9a; } /* Color para Comandos y Estado */
 
-.boton-estado {
-    background-color: #3498db; /* Azul */
-}
-
+/* Créditos en movimiento */
 .creditos {
     position: fixed;
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.8em;
-    color: white;
-    opacity: 0.7;
-    animation: moverCreditos 10s linear infinite;
+    width: 100%;
     white-space: nowrap;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
 }
 
-@keyframes moverCreditos {
-    0% { transform: translateX(100%); }
+.creditos p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: mover-creditos 15s linear infinite;
+}
+
+@keyframes mover-creditos {
+    0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
 
 @media (max-width: 600px) {
-    h1 {
-        font-size: 2em;
+    .panel-container {
+        padding: 20px;
+        max-width: 90%;
     }
-
-    p {
-        font-size: 1em;
-    }
-
+    .titulo { font-size: 2em; }
+    .subtitulo { font-size: 1em; }
     .imagen-circular-container {
-        width: 150px;
-        height: 150px;
+        width: 120px;
+        height: 120px;
     }
-
-    .botones-container {
-        flex-direction: column;
+    .boton-desplegable, .boton-whatsapp, .boton-pagina {
+        font-size: 0.9em;
     }
 }
