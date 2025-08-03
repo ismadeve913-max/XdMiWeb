@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/comandos", "destination": "/especificaciones.html" }
+  ]
+}
