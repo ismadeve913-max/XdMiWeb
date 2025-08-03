@@ -1,0 +1,16 @@
+{
+  "name": "ATAGOX-BOT WEB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "keywords": [],
+  "author": "El Papu Cuervo BB",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "pg": "^8.11.3"
+  }
+}
