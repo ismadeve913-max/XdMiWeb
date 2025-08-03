@@ -109,7 +109,7 @@ p {
 
 .boton-whatsapp,
 .boton-especificaciones,
-.boton-estado {
+.boton-estado { /* NUEVO ESTILO */
     display: inline-block;
     padding: 12px 25px;
     border-radius: 25px;
@@ -138,10 +138,6 @@ p {
 
 .numero {
     background-color: #075e54; /* Verde muy oscuro de WhatsApp */
-}
-
-.atagox {
-    background-color: #3f51b5; /* Azul índigo para el nuevo botón */
 }
 
 .boton-especificaciones {
