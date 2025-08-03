@@ -1,14 +1,19 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background-color: #f0f2f5;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  /* Reemplaza la URL con la de tu imagen de fondo */
+  background-image: url('URL_DE_TU_IMAGEN_DE_FONDO.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+/* Estilos para la pantalla de carga */
 #cargando {
   display: flex;
   justify-content: center;
@@ -18,19 +23,48 @@ body {
   background-color: white;
 }
 
-#cargando img {
-  max-width: 80%;
-  height: auto;
-  border-radius: 10px;
+.cargador {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estilos para el contenido principal (el panel) */
 #contenido {
   padding: 20px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Estilos para la imagen circular */
+.imagen-circular-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.imagen-circular {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Estilos para los botones semitransparentes */
 .botones-container {
   display: flex;
   flex-direction: column;
@@ -45,23 +79,46 @@ body {
   color: white;
   text-decoration: none;
   border-radius: 50px;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: inline-block;
 }
 
 .canal {
-  background-color: #075e54;
+  background-color: rgba(7, 94, 84, 0.7);
 }
 
 .grupo {
-  background-color: #25d366;
+  background-color: rgba(37, 211, 102, 0.7);
 }
 
 .numero {
-  background-color: #128c7e;
+  background-color: rgba(18, 140, 126, 0.7);
 }
 
 .boton-whatsapp:hover {
-  filter: brightness(1.1);
+  background-color: rgba(0, 0, 0, 0.5);
+  filter: brightness(1.2);
+}
+
+/* Estilos y animación para los créditos */
+.creditos {
+  margin-top: 30px;
+  color: #555;
+  font-size: 14px;
+  opacity: 0.7;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.creditos p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-texto 15s linear infinite;
+}
+
+@keyframes scroll-texto {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }
