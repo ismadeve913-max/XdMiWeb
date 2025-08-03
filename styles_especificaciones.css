@@ -6,20 +6,19 @@ body {
     align-items: center;
     min-height: 100vh;
     /* Reemplaza la URL con la de tu imagen de fondo */
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+    background-image: url('URL_DE_TU_IMAGEN_DE_FONDO.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Clases para mostrar/ocultar contenido */
 .oculto {
   display: none;
 }
 
-/* Estilos de la pantalla de carga (copiados de styles.css) */
 #cargando-especificaciones {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -27,7 +26,11 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: white;
+  /* Reemplaza la URL con la de tu imagen de fondo para la carga */
+  background-image: url('URL_DE_TU_IMAGEN_DE_CARGA.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   z-index: 9999;
 }
 
@@ -38,6 +41,7 @@ body {
   width: 60px;
   height: 60px;
   animation: spin 2s linear infinite;
+  margin-bottom: 15px;
 }
 
 @keyframes spin {
@@ -45,8 +49,20 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+.texto-carga {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  animation: pulso 1.5s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 .container {
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para ver la imagen */
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -112,18 +128,18 @@ button:hover {
     color: purple;
 }
 
-#boton-kick {
+.btn-especificacion {
     cursor: pointer;
     font-weight: bold;
     color: #007bff;
     transition: color 0.2s ease;
 }
 
-#boton-kick:hover {
+.btn-especificacion:hover {
     text-decoration: underline;
 }
 
-#interfaz-kick {
+#interfaz-info {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -133,6 +149,8 @@ button:hover {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     transition: transform 0.4s ease-out;
+    padding: 20px;
+    text-align: left;
 }
 
 .interfaz-oculta {
@@ -141,12 +159,6 @@ button:hover {
 
 .interfaz-mostrada {
     transform: translateY(0);
-}
-
-.contenido-interfaz {
-    padding: 20px;
-    position: relative;
-    text-align: left;
 }
 
 .cerrar-btn {
@@ -161,4 +173,8 @@ button:hover {
 
 .cerrar-btn:hover {
     color: #555;
+}
+
+.descripcion-oculta {
+  display: none;
 }
