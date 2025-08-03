@@ -128,6 +128,11 @@ button:hover {
     color: purple;
 }
 
+/* NUEVA CLASE PARA EL COLOR ROJO */
+.color-rojo {
+    color: red;
+}
+
 .btn-especificacion {
     cursor: pointer;
     font-weight: bold;
