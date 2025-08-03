@@ -14,13 +14,20 @@ buscador.addEventListener('input', (e) => {
     const busqueda = e.target.value.toLowerCase();
 
     categorias.forEach(categoria => {
-        const textoCategoria = categoria.textContent.toLowerCase();
+        const h2 = categoria.querySelector('h2').textContent.toLowerCase();
+        const lis = categoria.querySelectorAll('li');
+        let hayResultadosEnCategoria = false;
 
-        if (textoCategoria.includes(busqueda)) {
-            categoria.style.display = 'block';
-        } else {
-            categoria.style.display = 'none';
-        }
+        lis.forEach(li => {
+            const textoBoton = li.querySelector('.btn-especificacion').textContent.toLowerCase();
+            const mostrar = h2.includes(busqueda) || textoBoton.includes(busqueda);
+            li.style.display = mostrar ? 'block' : 'none';
+            if (mostrar) {
+                hayResultadosEnCategoria = true;
+            }
+        });
+
+        categoria.style.display = hayResultadosEnCategoria ? 'block' : 'none';
     });
 });
 
