@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estado y Registro</title>
+    <link rel="stylesheet" href="styles_estado.css">
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="volver-btn">&larr; Volver</a>
+        
+        <h1>Estado de la Página</h1>
+        <p>Aquí puedes ver el estado del bot y registrarte.</p>
+        
+        <div class="estado-info">
+            <div class="estado-item">
+                <p>Usuarios que vieron la página:</p>
+                <strong id="usuarios-vistos">0</strong>
+            </div>
+            <div class="estado-item">
+                <p>Velocidad de la página:</p>
+                <strong id="velocidad">0ms</strong>
+            </div>
+            <div class="estado-item">
+                <p>Estado de la página:</p>
+                <strong id="estado-pagina" class="color-verde">Cargando...</strong>
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Registro de Usuario</h2>
+        <p>Completa el formulario para registrarte.</p>
+        
+        <form id="formulario-registro">
+            <input type="text" id="usuario" placeholder="Usuario" required>
+            <input type="password" id="contrasena" placeholder="Contraseña" required>
+            <button type="submit">Registrarme</button>
+        </form>
+    </div>
+    
+    <script src="script_estado.js"></script>
+</body>
+</html>
