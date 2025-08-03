@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pantalla de Carga y Botones</title>
-  <link rel="stylesheet" href="styles.css"> </head>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
 
   <div id="cargando">
-    <img src="https://i.ibb.co/hL4kL6V/Whats-App-Image-2024-07-28-at-2-58-13-PM.jpg" alt="Imagen de carga">
+    <div class="cargador"></div>
   </div>
 
   <div id="contenido" style="display: none;">
+    <div class="imagen-circular-container">
+      <img src="URL_DE_TU_IMAGEN_CIRCULAR.jpg" alt="Imagen de perfil" class="imagen-circular">
+    </div>
     <h1>¡Bienvenido!</h1>
     <p>Selecciona una opción para contactarnos:</p>
     <div class="botones-container">
@@ -19,7 +23,12 @@
       <a href="https://chat.whatsapp.com/TU_ID_DE_GRUPO" class="boton-whatsapp grupo">Grupo de WhatsApp</a>
       <a href="https://wa.me/NUMERO_DE_TELEFONO?text=Hola%20me%20interesa%20saber%20mas" class="boton-whatsapp numero">Número de WhatsApp</a>
     </div>
+
+    <div class="creditos">
+      <p>Creditos Cuervo-Team-Supreme By Atagox-Bot</p>
+    </div>
   </div>
 
-  <script src="script.js"></script> </body>
+  <script src="script.js"></script>
+</body>
 </html>
