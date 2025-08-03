@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        .hidden { display: none; }
+        .perfil-container { max-width: 500px; padding: 20px; }
+        .user-info p { font-size: 1.1em; }
+        .user-info p strong { color: var(--color-principal); }
+        .update-form input { margin-top: 10px; width: calc(100% - 22px); }
+    </style>
+</head>
+<body>
+    <div class="panel-container perfil-container">
+        <a href="index.html" class="boton-volver" style="position: absolute; top: 20px; left: 20px;">← Volver</a>
+        
+        <div id="auth-section">
+            <h1>Iniciar Sesión</h1>
+            <form id="loginForm">
+                <input type="text" id="loginUsername" placeholder="Nombre de Usuario" required>
+                <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+            </form>
+            <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            <p id="loginMessage" style="margin-top: 10px;"></p>
+        </div>
+
+        <div id="profile-section" class="hidden">
+            <h1>Panel de Usuario</h1>
+            <div class="user-info">
+                <p>Bienvenido, <strong id="profile-username"></strong></p>
+                <p>Email: <strong id="profile-email"></strong></p>
+            </div>
+            
+            <h3>Cambiar nombre de usuario</h3>
+            <form id="updateUsernameForm" class="update-form">
+                <input type="text" id="newUsernameInput" placeholder="Nuevo nombre de usuario" required>
+                <button type="submit">Guardar</button>
+            </form>
+            <p id="updateUsernameMessage" style="margin-top: 10px;"></p>
+
+            <h3>Cambiar Email</h3>
+            <form id="updateEmailForm" class="update-form">
+                <input type="email" id="newEmailInput" placeholder="Nuevo email" required>
+                <button type="submit">Guardar</button>
+            </form>
+            <p id="updateEmailMessage" style="margin-top: 10px;"></p>
+            
+            <h3>Cambiar Contraseña</h3>
+            <form id="updatePasswordForm" class="update-form">
+                <input type="password" id="oldPasswordInput" placeholder="Contraseña actual" required>
+                <input type="password" id="newPasswordInput" placeholder="Nueva contraseña" required>
+                <button type="submit">Guardar</button>
+            </form>
+            <p id="updatePasswordMessage" style="margin-top: 10px;"></p>
+
+            <button id="logoutButton" style="margin-top: 20px;">Cerrar Sesión</button>
+            <a href="admin.html" class="boton-pagina" style="margin-top: 20px;">Acceder como administrador</a>
+        </div>
+    </div>
+
+    <script src="script_perfil.js"></script>
+</body>
+</html>
