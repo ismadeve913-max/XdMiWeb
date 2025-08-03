@@ -1,42 +1,45 @@
-const pantallaCarga = document.getElementById('cargando');
-const contenidoPrincipal = document.getElementById('contenido');
-const musicaFondo = document.getElementById('musicaFondo');
+document.addEventListener('DOMContentLoaded', () => {
+    const pantallaCarga = document.getElementById('cargando');
+    const contenidoPrincipal = document.getElementById('contenido');
+    const musicaFondo = document.getElementById('musicaFondo');
+    
+    // Pantalla de carga
+    setTimeout(() => {
+        pantallaCarga.style.display = 'none';
+        contenidoPrincipal.style.display = 'flex';
+    }, 10000);
 
-setTimeout(() => {
-    pantallaCarga.style.display = 'none';
-    contenidoPrincipal.classList.remove('oculto');
-}, 10000);
+    // Música de fondo al primer clic del usuario
+    let musicaIniciada = false;
+    document.body.addEventListener('click', () => {
+        if (!musicaIniciada) {
+            musicaFondo.play().catch(error => {
+                console.error("No se pudo reproducir la música automáticamente:", error);
+            });
+            musicaIniciada = true;
+        }
+    });
 
-// Nuevo código para reproducir música al primer clic
-let musicaIniciada = false;
-contenidoPrincipal.addEventListener('click', () => {
-    if (!musicaIniciada) {
-        musicaFondo.play();
-        musicaIniciada = true;
-    }
+    // Funcionalidad de los botones desplegables
+    const btnWhatsapp = document.getElementById('btn-whatsapp');
+    const enlacesWhatsapp = document.getElementById('enlaces-whatsapp');
+
+    btnWhatsapp.addEventListener('click', () => {
+        if (enlacesWhatsapp.style.display === 'none') {
+            enlacesWhatsapp.style.display = 'flex';
+        } else {
+            enlacesWhatsapp.style.display = 'none';
+        }
+    });
+    
+    const btnPaginas = document.getElementById('btn-paginas');
+    const enlacesPaginas = document.getElementById('enlaces-paginas');
+
+    btnPaginas.addEventListener('click', () => {
+        if (enlacesPaginas.style.display === 'none') {
+            enlacesPaginas.style.display = 'flex';
+        } else {
+            enlacesPaginas.style.display = 'none';
+        }
+    });
 });
-
-
-// Simulación de datos del bot (reemplaza esto con tus datos reales)
-const datosBot = {
-    nombre: 'Bot de WhatsApp',
-    estado: 'En línea',
-    grupoId: '1234567890',
-    mensajesEnviados: 1250,
-    comandosUtilizados: 876,
-    miembrosGrupo: 52
-};
-
-document.getElementById('user-name').textContent = datosBot.nombre;
-document.getElementById('status-text').textContent = datosBot.estado;
-document.getElementById('group-id').textContent = `ID del Grupo: ${datosBot.grupoId}`;
-document.getElementById('mensajes-enviados').textContent = datosBot.mensajesEnviados;
-document.getElementById('comandos-utilizados').textContent = datosBot.comandosUtilizados;
-document.getElementById('miembros-grupo').textContent = datosBot.miembrosGrupo;
-
-const estadoDot = document.querySelector('.status-dot');
-if (datosBot.estado === 'En línea') {
-    estadoDot.style.backgroundColor = 'var(--color-secundario)';
-} else {
-    estadoDot.style.backgroundColor = 'var(--color-terciario)';
-}
