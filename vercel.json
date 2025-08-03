@@ -1,9 +1,6 @@
 {
   "rewrites": [
     { "source": "/comandos", "destination": "/especificaciones.html" },
-    { "source": "/estado", "destination": "/estado.html" },
-    { "source": "/perfil", "destination": "/public/perfil.html" },
-    { "source": "/registro", "destination": "/public/registro.html" },
-    { "source": "/admin", "destination": "/public/admin.html" }
+    { "source": "/estado", "destination": "/estado.html" }
   ]
 }
