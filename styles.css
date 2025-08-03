@@ -15,11 +15,16 @@ body {
 
 #cargando {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
-  background-color: white;
+  /* Reemplaza la URL con la de tu imagen de fondo para la carga */
+  background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .cargador {
@@ -29,11 +34,24 @@ body {
   width: 60px;
   height: 60px;
   animation: spin 2s linear infinite;
+  margin-bottom: 15px;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.texto-carga {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  animation: pulso 1.5s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 #contenido {
@@ -56,7 +74,7 @@ body {
   right: -3px;
   bottom: -3px;
   left: -3px;
-  background: linear-gradient(45deg, purple, blue, green, yellow, orange, red, purple);
+  background: linear-gradient(45deg, rgba(128, 0, 128, 0.6), rgba(0, 0, 255, 0.6), rgba(0, 128, 0, 0.6), rgba(255, 255, 0, 0.6), rgba(255, 165, 0, 0.6), rgba(255, 0, 0, 0.6), rgba(128, 0, 128, 0.6));
   border-radius: 10px;
   z-index: -1;
   background-size: 300%;
@@ -114,7 +132,7 @@ body {
   right: -2px;
   bottom: -2px;
   left: -2px;
-  background: linear-gradient(45deg, red, yellow, lime, aqua, blue, magenta, red);
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(255, 255, 0, 0.6), rgba(0, 255, 0, 0.6), rgba(0, 255, 255, 0.6), rgba(0, 0, 255, 0.6), rgba(255, 0, 255, 0.6), rgba(255, 0, 0, 0.6));
   border-radius: 52px;
   z-index: -1;
   background-size: 300%;
@@ -122,15 +140,15 @@ body {
 }
 
 .canal::before {
-  background: linear-gradient(45deg, red, orangered, crimson, red);
+  background: linear-gradient(45deg, rgba(255, 0, 0, 0.6), rgba(255, 69, 0, 0.6), rgba(220, 20, 60, 0.6), rgba(255, 0, 0, 0.6));
 }
 
 .grupo::before {
-  background: linear-gradient(45deg, blue, royalblue, navy, blue);
+  background: linear-gradient(45deg, rgba(0, 0, 255, 0.6), rgba(65, 105, 225, 0.6), rgba(0, 0, 128, 0.6), rgba(0, 0, 255, 0.6));
 }
 
 .numero::before {
-  background: linear-gradient(45deg, green, limegreen, forestgreen, green);
+  background: linear-gradient(45deg, rgba(0, 128, 0, 0.6), rgba(50, 205, 50, 0.6), rgba(34, 139, 34, 0.6), rgba(0, 128, 0, 0.6));
 }
 
 .boton-whatsapp:hover {
