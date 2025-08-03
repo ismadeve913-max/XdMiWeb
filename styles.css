@@ -171,7 +171,8 @@ body {
   100% { background-position: 0 0; }
 }
 
-.boton-especificaciones {
+.boton-especificaciones,
+.boton-estado {
     padding: 15px 30px;
     font-size: 18px;
     font-weight: bold;
