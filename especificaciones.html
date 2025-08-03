@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Especificaciones</title>
+    <title>Atagox-Bot Commands</title>
     <link rel="stylesheet" href="styles_especificaciones.css">
 </head>
 <body>
     <div id="cargando-especificaciones">
       <div class="cargador"></div>
+      <p class="texto-carga">Cargando...</p>
     </div>
 
     <div id="contenido-especificaciones" class="oculto">
@@ -20,19 +21,25 @@
             <div class="categoria">
                 <h2 class="color-morado">Categoría Administracion</h2>
                 <ul>
-                    <li><span id="boton-kick">Kick</span></li>
-                    <li>Elimina al usuario</li>
+                    <li><span class="btn-especificacion" data-target="descripcion-kick">Kick</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-eliminar">Elimina al usuario</span></li>
                 </ul>
             </div>
 
             <button onclick="window.history.back()">Volver</button>
         </div>
         
-        <div id="interfaz-kick" class="interfaz-oculta">
+        <div id="interfaz-info" class="interfaz-oculta">
           <div class="contenido-interfaz">
             <span class="cerrar-btn" id="cerrar-interfaz">&times;</span>
-            <h2>Uso del botón "Kick"</h2>
-            <p>Este botón se utiliza para eliminar a un usuario de forma temporal o permanente de un grupo o canal. Al usar esta función, el usuario ya no podrá participar hasta que se le vuelva a dar acceso.</p>
+            <div id="descripcion-kick" class="descripcion-oculta">
+                <h2>Uso del botón "Kick"</h2>
+                <p>Este botón se utiliza para eliminar a un usuario de forma temporal o permanente de un grupo o canal. Al usar esta función, el usuario ya no podrá participar hasta que se le vuelva a dar acceso.</p>
+            </div>
+            <div id="descripcion-eliminar" class="descripcion-oculta">
+                <h2>Uso del botón "Elimina al usuario"</h2>
+                <p>Esta opción permite remover a un usuario de la lista de miembros de forma definitiva, impidiendo que vuelva a unirse a menos que sea invitado nuevamente. Es una función de eliminación permanente.</p>
+            </div>
           </div>
         </div>
     </div>
