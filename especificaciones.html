@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atagox-Bot Commands</title>
+    <title>Especificaciones</title>
     <link rel="stylesheet" href="styles_especificaciones.css">
 </head>
 <body>
@@ -22,7 +22,39 @@
                 <h2 class="color-morado">Categoría Administracion</h2>
                 <ul>
                     <li><span class="btn-especificacion" data-target="descripcion-kick">Kick</span></li>
-                    <li><span class="btn-especificacion" data-target="descripcion-eliminar">Elimina al usuario</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-mute">Mute</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-unmute">Unmute</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-ban">Ban</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-unban">Unban</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-promote">Promote</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-demote">Demote</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-tagall">Tagall</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-antilink">Antilink</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-antibadword">Antibadword</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-welcome">Welcome</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-goodbye">Goodbye</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-delete">Delete</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-del">Del</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-staff">Staff</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-admins">Admins</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-groupinfo">groupinfo</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-infogp">Infogp</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-warnings">Warnings</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-warn">Warn</span></li>
+                </ul>
+            </div>
+            
+            <div class="categoria">
+                <h2 class="color-rojo">Categoría Propietario</h2>
+                <ul>
+                    <li><span class="btn-especificacion" data-target="descripcion-mode">Mode</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-autostatus">Autostatus</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-antidelete">Antidelete</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-clearsession">Clearsession</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-cleartmp">Cleartmp</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-setpp">Setpp</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-autoreact">Autoreact</span></li>
+                    <li><span class="btn-especificacion" data-target="descripcion-areact">Areact</span></li>
                 </ul>
             </div>
 
@@ -34,11 +66,116 @@
             <span class="cerrar-btn" id="cerrar-interfaz">&times;</span>
             <div id="descripcion-kick" class="descripcion-oculta">
                 <h2>Uso del botón "Kick"</h2>
-                <p>Este botón se utiliza para eliminar a un usuario de forma temporal o permanente de un grupo o canal. Al usar esta función, el usuario ya no podrá participar hasta que se le vuelva a dar acceso.</p>
+                <p>Elimina al usuario del grupo</p>
             </div>
-            <div id="descripcion-eliminar" class="descripcion-oculta">
-                <h2>Uso del botón "Elimina al usuario"</h2>
-                <p>Esta opción permite remover a un usuario de la lista de miembros de forma definitiva, impidiendo que vuelva a unirse a menos que sea invitado nuevamente. Es una función de eliminación permanente.</p>
+            <div id="descripcion-mute" class="descripcion-oculta">
+                <h2>Uso del botón "Mute"</h2>
+                <p>Mutea un grupo por un tiempo determinado</p>
+            </div>
+            <div id="descripcion-unmute" class="descripcion-oculta">
+                <h2>Uso del botón "Unmute"</h2>
+                <p>Quita muteo al grupo</p>
+            </div>
+            <div id="descripcion-ban" class="descripcion-oculta">
+                <h2>Uso del botón "Ban"</h2>
+                <p>Banea el uso del bot</p>
+            </div>
+            <div id="descripcion-unban" class="descripcion-oculta">
+                <h2>Uso del botón "Unban"</h2>
+                <p>Quita el baneo del uso del bot</p>
+            </div>
+            <div id="descripcion-promote" class="descripcion-oculta">
+                <h2>Uso del botón "Promote"</h2>
+                <p>Dar administrador a un usuario</p>
+            </div>
+            <div id="descripcion-demote" class="descripcion-oculta">
+                <h2>Uso del botón "Demote"</h2>
+                <p>El bot quita administrador al usuario mencionado</p>
+            </div>
+            <div id="descripcion-tagall" class="descripcion-oculta">
+                <h2>Uso del botón "Tagall"</h2>
+                <p>Etiqueta a todos los usuarios</p>
+            </div>
+            <div id="descripcion-antilink" class="descripcion-oculta">
+                <h2>Uso del botón "Antilink"</h2>
+                <p>Protección ante enlaces</p>
+            </div>
+            <div id="descripcion-antibadword" class="descripcion-oculta">
+                <h2>Uso del botón "Antibadword"</h2>
+                <p>Protección ante malas palabras para publico mas infantil</p>
+            </div>
+            <div id="descripcion-welcome" class="descripcion-oculta">
+                <h2>Uso del botón "Welcome"</h2>
+                <p>Da bienvenida al nuevo integrante</p>
+            </div>
+            <div id="descripcion-goodbye" class="descripcion-oculta">
+                <h2>Uso del botón "Goodbye"</h2>
+                <p>Da despedida al integrante que salio</p>
+            </div>
+            <div id="descripcion-delete" class="descripcion-oculta">
+                <h2>Uso del botón "Delete"</h2>
+                <p>Elimina mensaje mencionado</p>
+            </div>
+            <div id="descripcion-del" class="descripcion-oculta">
+                <h2>Uso del botón "Del"</h2>
+                <p>Elimina mensaje mencionado</p>
+            </div>
+            <div id="descripcion-staff" class="descripcion-oculta">
+                <h2>Uso del botón "Staff"</h2>
+                <p>Menciona a los administradores</p>
+            </div>
+            <div id="descripcion-admins" class="descripcion-oculta">
+                <h2>Uso del botón "Admins"</h2>
+                <p>Menciona a los administradores</p>
+            </div>
+            <div id="descripcion-groupinfo" class="descripcion-oculta">
+                <h2>Uso del botón "groupinfo"</h2>
+                <p>Información del grupo</p>
+            </div>
+            <div id="descripcion-infogp" class="descripcion-oculta">
+                <h2>Uso del botón "Infogp"</h2>
+                <p>Información del grupo</p>
+            </div>
+            <div id="descripcion-warnings" class="descripcion-oculta">
+                <h2>Uso del botón "Warnings"</h2>
+                <p>Revisa advertencias del usuario</p>
+            </div>
+            <div id="descripcion-warn" class="descripcion-oculta">
+                <h2>Uso del botón "Warn"</h2>
+                <p>Dar advertencia al usuario</p>
+            </div>
+
+            <div id="descripcion-mode" class="descripcion-oculta">
+                <h2>Uso del botón "Mode"</h2>
+                <p>Que modo de bot se usara privado o público</p>
+            </div>
+            <div id="descripcion-autostatus" class="descripcion-oculta">
+                <h2>Uso del botón "Autostatus"</h2>
+                <p>Se veran estados de forma automática</p>
+            </div>
+            <div id="descripcion-antidelete" class="descripcion-oculta">
+                <h2>Uso del botón "Antidelete"</h2>
+                <p>El bot reenvia el contenido eliminado</p>
+            </div>
+            <div id="descripcion-clearsession" class="descripcion-oculta">
+                <h2>Uso del botón "Clearsession"</h2>
+                <p>Limpiar la sesión del bot</p>
+            </div>
+            <div id="descripcion-cleartmp" class="descripcion-oculta">
+                <h2>Uso del botón "Cleartmp"</h2>
+                <p>Limpia el tmp guardado del bot</p>
+            </div>
+            <div id="descripcion-setpp" class="descripcion-oculta">
+                <h2>Uso del botón "Setpp"</h2>
+                <p>Cambia imagen de perfil del bot</p>
+            </div>
+            <div id="descripcion-autoreact" class="descripcion-oculta">
+                <h2>Uso del botón "Autoreact"</h2>
+                <p>El bot reacciona de forma automática a mensajes</p>
+            </div>
+            <div id="descripcion-areact" class="descripcion-oculta">
+                <h2>Uso del botón "Areact"</h2>
+                <p>El bot reacciona de forma automática a mensajes</p>
             </div>
           </div>
         </div>
