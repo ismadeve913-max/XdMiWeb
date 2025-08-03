@@ -10,5 +10,5 @@ setTimeout(() => {
   pantallaCarga.style.display = 'none';
   
   // Y muestra el contenido principal
-  contenidoPrincipal.style.display = 'block';
+  contenidoPrincipal.style.display = 'flex'; // Cambiado a flex para centrar el contenido
 }, 10000);
