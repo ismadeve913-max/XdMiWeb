@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg'); /* Reemplaza con tu URL */
+    background-image: url('URL_DE_TU_IMAGEN_DE_FONDO.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg'); /* Reemplaza con tu URL */
+    background-image: url('URL_DE_TU_IMAGEN_DE_CARGA.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -45,7 +45,7 @@ body {
 }
 
 .texto-carga {
-    color: black; /* Puedes cambiarlo a blanco si lo prefieres sobre el fondo de carga */
+    color: black;
     font-size: 20px;
     font-weight: bold;
     animation: pulso 1.5s ease-in-out infinite;
@@ -57,7 +57,7 @@ body {
 }
 
 #contenido {
-    display: none; /* Inicialmente oculto */
+    display: none;
     text-align: center;
     padding: 20px;
 }
@@ -71,7 +71,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     color: #333;
-    position: relative; /* Para posicionar el botón de volver */
+    position: relative;
 }
 
 .volver-btn {
@@ -97,18 +97,16 @@ h1, p {
 
 .estado-info {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column; /* ¡CAMBIO CLAVE! Esto hace que los elementos se apilen verticalmente. */
     margin: 20px 0;
-    flex-wrap: wrap;
     gap: 15px;
 }
-
+        
 .estado-item {
     background-color: #f9f9f9;
     padding: 15px;
     border-radius: 6px;
-    flex: 1;
-    min-width: 150px;
+    width: 100%; /* Asegura que cada elemento ocupe todo el ancho disponible */
 }
 
 .estado-item p {
