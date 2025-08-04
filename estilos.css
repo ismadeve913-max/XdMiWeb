@@ -1,0 +1,303 @@
+/* Variables de color y fuentes */
+:root {
+    --color-principal: #121212;
+    --color-secundario: #007BFF;
+    --color-texto: #E0E0E0;
+    --color-borde: #555;
+    --color-panel-fondo: rgba(18, 18, 18, 0.7);
+}
+
+/* Estilo general del cuerpo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--color-texto);
+    overflow-x: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: filter 0.5s ease-in-out;
+}
+
+/* Fondo estático de la página */
+.fondo-estatico {
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e4/Amanecer_en_el_lago_de_Chapala_2.JPG');
+    filter: blur(5px);
+}
+
+/* Estilos de la pantalla de carga */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease-in-out;
+}
+
+#loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    animation: none;
+}
+
+/* Animación de movimiento para cada letra de "Cargando..." */
+.moving-letter {
+    display: inline-block;
+    animation: wave 1.5s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+    color: black;
+    font-weight: bold;
+}
+
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-10px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(10px); }
+}
+
+/* Estilos de la interfaz de usuario */
+.panel-container {
+    background-color: var(--color-panel-fondo);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 90%;
+    max-width: 800px;
+    transition: transform 0.5s ease;
+    text-align: center;
+}
+
+.menu-container {
+    transform: translateY(0);
+}
+
+.command-interface-container {
+    position: fixed;
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 700px;
+    height: 35%;
+    background-color: var(--color-panel-fondo);
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 200;
+    transition: bottom 0.5s ease-in-out;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.command-interface-container.active {
+    bottom: 0;
+}
+
+/* Efecto de borde brillante */
+.glowing-border {
+    border: 2px solid transparent;
+    animation: glowing-border-animation 2s infinite alternate;
+}
+
+@keyframes glowing-border-animation {
+    from {
+        border-image: linear-gradient(to right, #00C6FF 0%, #007BFF 100%) 1;
+    }
+    to {
+        border-image: linear-gradient(to right, #007BFF 0%, #00C6FF 100%) 1;
+    }
+}
+
+.hidden-panel {
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el campo de búsqueda */
+.search-container {
+    margin: 20px 0;
+}
+
+.search-container input {
+    width: calc(100% - 22px);
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: #333;
+    color: var(--color-texto);
+    font-size: 1em;
+}
+
+/* Estilo para el título de la categoría con efecto arcoíris y brillo */
+.category-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    text-align: left;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+    background-image: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 10s linear infinite;
+
+    text-shadow: 0 0 5px #ff6347, 0 0 10px #ff6347, 0 0 15px #ff6347, 0 0 20px #ff6347;
+    animation: glowing 1.5s infinite alternate;
+}
+
+@keyframes rainbow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes glowing {
+    from {
+        text-shadow: 0 0 5px #ff6347, 0 0 10px #ff6347, 0 0 15px #ff6347, 0 0 20px #ff6347;
+    }
+    to {
+        text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347, 0 0 30px #ff6347, 0 0 40px #ff6347;
+    }
+}
+
+
+/* Nuevo estilo para los botones del menú (ahora son más como elementos de lista) */
+.boton-pagina {
+    background-color: transparent;
+    color: var(--color-texto);
+    border: none;
+    border-radius: 0;
+    padding: 10px 0;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: color 0.3s ease;
+    margin: 5px 0;
+}
+
+/* Efecto al pasar el cursor sobre la descripción */
+.boton-pagina:hover {
+    color: var(--color-secundario);
+}
+
+.botones-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 0 20px;
+    gap: 0;
+}
+
+/* Estilo del botón de cierre del panel */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--color-texto);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Estilos de la descripción en movimiento */
+.serpentine-letter {
+    display: inline-block;
+    animation: serpentine 3s ease-in-out infinite; 
+    animation-delay: var(--delay);
+}
+
+@keyframes serpentine {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Nuevos estilos para la imagen circular y su animación */
+.circular-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra para el efecto de brillo */
+    border: 3px solid #fff;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Clase para activar la animación de rotación */
+.spin-active {
+    animation: spin-image 5s linear forwards;
+}
+
+@keyframes spin-image {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Estilo del texto de bienvenida */
+.welcome-text {
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
