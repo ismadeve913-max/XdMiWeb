@@ -15,7 +15,7 @@ body {
 }
 
 .panel-container {
-    background: rgba(18, 18, 18, 0.9);
+    background: rgba(18, 18, 18, 0.7);
     backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 20px;
@@ -107,7 +107,7 @@ h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(18, 18, 18, 0.95);
+    background: rgba(18, 18, 18, 0.7);
     backdrop-filter: blur(10px);
     border-top: 2px solid #007bff;
     border-top-left-radius: 15px;
@@ -141,15 +141,20 @@ h1 {
     }
 }
 
-.command-interface-container h2 {
+.dynamic-panel-content h2 {
     margin: 0;
-    font-size: 2em;
+    font-size: 1.8em;
     color: #fff;
     text-shadow: 0 0 10px #007bff;
+    text-align: center;
 }
 
-.hidden-panel {
-    display: none;
+.dynamic-panel-content p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #aaa;
+    text-align: center;
+    max-width: 90%;
 }
 
 .close-button {
@@ -196,12 +201,16 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro ligeramente transparente */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 200;
+    z-index: 210; /* Asegura que esté por encima de todo */
     opacity: 1;
     transition: opacity 1s ease, visibility 1s ease;
 }
@@ -211,11 +220,21 @@ h1 {
     visibility: hidden;
 }
 
+.loading-spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #007bff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
 .loading-text {
     font-size: 2em;
     font-weight: bold;
     letter-spacing: 0.1em;
-    margin-top: 20px;
+    margin-top: 0;
 }
 
 .moving-letter {
@@ -232,5 +251,18 @@ h1 {
     100% {
         transform: translateY(-10px);
         color: #007bff;
+    }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glowing-border {
+    from {
+        box-shadow: 0 -5px 15px rgba(0, 123, 255, 0.4);
+    }
+    to {
+        box-shadow: 0 -5px 25px rgba(0, 123, 255, 0.8);
     }
 }
