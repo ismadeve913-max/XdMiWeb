@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Estado de la Página</title>
+    
+    <meta name="description" content="Información en tiempo real sobre el estado de la página, incluyendo IP, localidad, velocidad de carga y más.">
+    <meta property="og:title" content="Estado de la Página">
+    <meta property="og:description" content="Una página interactiva para ver el estado y el rendimiento del sitio.">
+    <meta property="og:image" content="https://zero-two.info/uploads/images/file-1754163951777-147689048.jpg">
+    <meta property="og:url" content="https://www.cuervo-negocios.space/estado">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="estado.css">
+</head>
+<body>
+
+    <audio id="background-audio" autoplay loop>
+        <source src="URL_DEL_AUDIO.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="loader-container">
+        <div class="loading-circle"></div>
+        <div class="loading-text">
+            <span class="letter">C</span><span class="letter">a</span><span class="letter">r</span><span class="letter">g</span><span class="letter">a</span><span class="letter">n</span><span class="letter">d</span><span class="letter">o</span><span class="letter">.</span><span class="letter">.</span><span class="letter">.</span>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>Bienvenido al Estado de la Página</h1>
+        <p>Aquí puedes ver toda la información de tu conexión.</p>
+    </div>
+
+    <div class="info-panel">
+        <img id="rotating-image" class="rotating-image" src="https://zero-two.info/uploads/images/file-1754209626209-751608220.jpg" alt="Imagen giratoria">
+        <div class="info-panel-content">
+            <h2>Información del Usuario</h2>
+            <div id="ip-info">
+                <p><strong>Dirección IP:</strong> <span id="ip-address">Cargando...</span></p>
+                <p><strong>Localidad:</strong> <span id="localidad">Cargando...</span></p>
+                <p><strong>Hora Local:</strong> <span id="hora-local">Cargando...</span></p>
+            </div>
+            <div id="performance-info">
+                <p><strong>Velocidad de Carga:</strong> <span id="load-speed">Cargando...</span></p>
+                <p><strong>Estado de la Página:</strong> <span id="page-status">Activa</span></p>
+            </div>
+        </div>
+        <div class="moving-text-container">
+            <div class="moving-text">Create Cuervo-Team-Supreme By Atagox-Bot</div>
+        </div>
+    </div>
+
+    <script src="estado.js"></script>
+</body>
+</html>
