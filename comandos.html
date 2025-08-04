@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Atagox-Bot</title>
+    
+    <meta property="og:title" content="Comandos Atagox-Bot">
+    <meta property="og:description" content="Explora el menú de comandos completo del Atagox-Bot para su uso en grupos de WhatsApp.">
+    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg">
+    <meta property="og:url" content="https://tudominio.com/comandos.html">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="fondo-estatico">
+    <div id="loading-overlay">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg" alt="Pelícano del Lago de Chapala" style="width: 150px; height: auto;">
+        <p class="loading-text" id="loading-text-animation">Cargando...</p>
+    </div>
+
+    <div class="panel-container menu-container">
+        <h1>Comandos Atagox-Bot</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg" alt="Imagen del bot" id="rotating-image" class="circular-image">
+        <p class="welcome-text">Hola Usuario, aquí están los comandos del bot.</p>
+
+        <div class="search-container">
+            <input type="text" id="command-search" placeholder="Busca por categoría o el comando..." onkeyup="filterCommands()">
+        </div>
+
+        <div class="botones-container" id="commands-list">
+            <h3 class="category-title">Administración</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('kick')" data-category="Administración">.kick</button>
+            <button class="boton-pagina" onclick="showCommandPanel('mute')" data-category="Administración">.mute</button>
+            <button class="boton-pagina" onclick="showCommandPanel('unmute')" data-category="Administración">.unmute</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ban')" data-category="Administración">.ban</button>
+            <button class="boton-pagina" onclick="showCommandPanel('unban')" data-category="Administración">.unban</button>
+            <button class="boton-pagina" onclick="showCommandPanel('promote')" data-category="Administración">.promote</button>
+            <button class="boton-pagina" onclick="showCommandPanel('demote')" data-category="Administración">.demote</button>
+            <button class="boton-pagina" onclick="showCommandPanel('tagall')" data-category="Administración">.tagall</button>
+            <button class="boton-pagina" onclick="showCommandPanel('antilink')" data-category="Administración">.antilink</button>
+            <button class="boton-pagina" onclick="showCommandPanel('antibadword')" data-category="Administración">.antibadword</button>
+            <button class="boton-pagina" onclick="showCommandPanel('welcome')" data-category="Administración">.welcome</button>
+            <button class="boton-pagina" onclick="showCommandPanel('goodbye')" data-category="Administración">.goodbye</button>
+            <button class="boton-pagina" onclick="showCommandPanel('delete')" data-category="Administración">.delete o .del</button>
+            <button class="boton-pagina" onclick="showCommandPanel('resetlink')" data-category="Administración">.resetlink o .revoke</button>
+            <button class="boton-pagina" onclick="showCommandPanel('staff')" data-category="Administración">.staff o .admins</button>
+            <button class="boton-pagina" onclick="showCommandPanel('groupinfo')" data-category="Administración">.groupinfo o .infogp</button>
+            <button class="boton-pagina" onclick="showCommandPanel('warnings')" data-category="Administración">.warnings</button>
+            <button class="boton-pagina" onclick="showCommandPanel('warn')" data-category="Administración">.warn</button>
+
+            <h3 class="category-title">Propietario</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('mode')" data-category="Propietario">.mode</button>
+            <button class="boton-pagina" onclick="showCommandPanel('autostatus')" data-category="Propietario">.autostatus</button>
+            <button class="boton-pagina" onclick="showCommandPanel('antidelete')" data-category="Propietario">.antidelete</button>
+            <button class="boton-pagina" onclick="showCommandPanel('clearsession')" data-category="Propietario">.clearsession</button>
+            <button class="boton-pagina" onclick="showCommandPanel('cleartmp')" data-category="Propietario">.cleartmp</button>
+            <button class="boton-pagina" onclick="showCommandPanel('setpp')" data-category="Propietario">.setpp</button>
+            <button class="boton-pagina" onclick="showCommandPanel('autoreact')" data-category="Propietario">.autoreact o .areact</button>
+            <button class="boton-pagina" onclick="showCommandPanel('jid')" data-category="Propietario">.jid</button>
+            
+            <h3 class="category-title">Utilidad</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('help')" data-category="Utilidad">.help o .menu</button>
+            <button class="boton-pagina" onclick="showCommandPanel('owner')" data-category="Utilidad">.owner</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ping')" data-category="Utilidad">.ping</button>
+            <button class="boton-pagina" onclick="showCommandPanel('uptime')" data-category="Utilidad">.uptime</button>
+            <button class="boton-pagina" onclick="showCommandPanel('git')" data-category="Utilidad">.git o .github</button>
+            <button class="boton-pagina" onclick="showCommandPanel('take')" data-category="Utilidad">.take</button>
+            <button class="boton-pagina" onclick="showCommandPanel('simage')" data-category="Utilidad">.simage</button>
+            <button class="boton-pagina" onclick="showCommandPanel('getpp')" data-category="Utilidad">.getpp</button>
+            
+            <h3 class="category-title">Juegos</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('ttt')" data-category="Juegos">.ttt o .tictactoe</button>
+            <button class="boton-pagina" onclick="showCommandPanel('surrender')" data-category="Juegos">.surrender</button>
+            <button class="boton-pagina" onclick="showCommandPanel('hangman')" data-category="Juegos">.hangman</button>
+            <button class="boton-pagina" onclick="showCommandPanel('guess')" data-category="Juegos">.guess</button>
+            <button class="boton-pagina" onclick="showCommandPanel('trivia')" data-category="Juegos">.trivia</button>
+            <button class="boton-pagina" onclick="showCommandPanel('answer')" data-category="Juegos">.answer</button>
+            <button class="boton-pagina" onclick="showCommandPanel('8ball')" data-category="Juegos">.8ball</button>
+            
+            <h3 class="category-title">Medios</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('sticker')" data-category="Medios">.sticker o .s</button>
+            <button class="boton-pagina" onclick="showCommandPanel('attp')" data-category="Medios">.attp</button>
+            <button class="boton-pagina" onclick="showCommandPanel('blur')" data-category="Medios">.blur</button>
+            <button class="boton-pagina" onclick="showCommandPanel('emojimix')" data-category="Medios">.emojimix</button>
+            <button class="boton-pagina" onclick="showCommandPanel('stickertelegram')" data-category="Medios">.stickertelegram o .tg</button>
+            <button class="boton-pagina" onclick="showCommandPanel('viewonce')" data-category="Medios">.viewonce o .vv</button>
+            <button class="boton-pagina" onclick="showCommandPanel('instagram')" data-category="Medios">.instagram o .insta</button>
+            <button class="boton-pagina" onclick="showCommandPanel('facebook')" data-category="Medios">.facebook o .fb</button>
+            <button class="boton-pagina" onclick="showCommandPanel('tiktok')" data-category="Medios">.tiktok o .tt</button>
+            <button class="boton-pagina" onclick="showCommandPanel('song')" data-category="Medios">.song o .music</button>
+            <button class="boton-pagina" onclick="showCommandPanel('play')" data-category="Medios">.play o .mp3</button>
+            <button class="boton-pagina" onclick="showCommandPanel('video')" data-category="Medios">.video o .mp4</button>
+            <button class="boton-pagina" onclick="showCommandPanel('imagine')" data-category="Medios">.imagine</button>
+
+            <h3 class="category-title">Humor</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('meme')" data-category="Humor">.meme</button>
+            <button class="boton-pagina" onclick="showCommandPanel('joke')" data-category="Humor">.joke</button>
+            <button class="boton-pagina" onclick="showCommandPanel('quote')" data-category="Humor">.quote</button>
+            <button class="boton-pagina" onclick="showCommandPanel('fact')" data-category="Humor">.fact</button>
+            <button class="boton-pagina" onclick="showCommandPanel('compliment')" data-category="Humor">.compliment</button>
+            <button class="boton-pagina" onclick="showCommandPanel('insult')" data-category="Humor">.insult</button>
+            <button class="boton-pagina" onclick="showCommandPanel('lyrics')" data-category="Humor">.lyrics</button>
+            <button class="boton-pagina" onclick="showCommandPanel('dare')" data-category="Humor">.dare</button>
+            <button class="boton-pagina" onclick="showCommandPanel('truth')" data-category="Humor">.truth</button>
+            <button class="boton-pagina" onclick="showCommandPanel('flirt')" data-category="Humor">.flirt</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ship')" data-category="Humor">.ship</button>
+            <button class="boton-pagina" onclick="showCommandPanel('stupid')" data-category="Humor">.stupid o .iss</button>
+            <button class="boton-pagina" onclick="showCommandPanel('simp')" data-category="Humor">.simp</button>
+            <button class="boton-pagina" onclick="showCommandPanel('character')" data-category="Humor">.character</button>
+            <button class="boton-pagina" onclick="showCommandPanel('wasted')" data-category="Humor">.wasted</button>
+            <button class="boton-pagina" onclick="showCommandPanel('goodnight')" data-category="Humor">.goodnight</button>
+            <button class="boton-pagina" onclick="showCommandPanel('roseday')" data-category="Humor">.roseday</button>
+            <button class="boton-pagina" onclick="showCommandPanel('shayari')" data-category="Humor">.shayari</button>
+            
+            <h3 class="category-title">Edición</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('metallic')" data-category="Edición">.metallic</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ice')" data-category="Edición">.ice</button>
+            <button class="boton-pagina" onclick="showCommandPanel('snow')" data-category="Edición">.snow</button>
+            <button class="boton-pagina" onclick="showCommandPanel('impressive')" data-category="Edición">.impressive</button>
+            <button class="boton-pagina" onclick="showCommandPanel('matrix')" data-category="Edición">.matrix</button>
+            <button class="boton-pagina" onclick="showCommandPanel('light')" data-category="Edición">.light</button>
+            <button class="boton-pagina" onclick="showCommandPanel('neon')" data-category="Edición">.neon</button>
+            <button class="boton-pagina" onclick="showCommandPanel('devil')" data-category="Edición">.devil</button>
+            <button class="boton-pagina" onclick="showCommandPanel('purple')" data-category="Edición">.purple</button>
+            <button class="boton-pagina" onclick="showCommandPanel('thunder')" data-category="Edición">.thunder</button>
+            <button class="boton-pagina" onclick="showCommandPanel('leaves')" data-category="Edición">.leaves</button>
+            <button class="boton-pagina" onclick="showCommandPanel('1917')" data-category="Edición">.1917</button>
+            <button class="boton-pagina" onclick="showCommandPanel('arena')" data-category="Edición">.arena</button>
+            <button class="boton-pagina" onclick="showCommandPanel('hacker')" data-category="Edición">.hacker</button>
+            <button class="boton-pagina" onclick="showCommandPanel('sand')" data-category="Edición">.sand</button>
+            <button class="boton-pagina" onclick="showCommandPanel('blackpink')" data-category="Edición">.blackpink</button>
+            <button class="boton-pagina" onclick="showCommandPanel('glitch')" data-category="Edición">.glitch</button>
+            <button class="boton-pagina" onclick="showCommandPanel('fire')" data-category="Edición">.fire</button>
+            <button class="boton-pagina" onclick="showCommandPanel('translate')" data-category="Edición">.translate</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ss')" data-category="Edición">.ss o .ssweb</button>
+
+            <h3 class="category-title">Info & IA</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('weather')" data-category="Info & IA">.weather</button>
+            <button class="boton-pagina" onclick="showCommandPanel('news')" data-category="Info & IA">.news</button>
+            <button class="boton-pagina" onclick="showCommandPanel('tts')" data-category="Info & IA">.tts</button>
+            <button class="boton-pagina" onclick="showCommandPanel('topmembers')" data-category="Info & IA">.topmembers</button>
+            <button class="boton-pagina" onclick="showCommandPanel('gpt')" data-category="Info & IA">.gpt o .gemini</button>
+        </div>
+    </div>
+
+    <div id="command-interface-panel" class="command-interface-container">
+        <button class="close-button" onclick="hideCommandPanel()">×</button>
+        <div id="command-panel-content" class="dynamic-panel-content">
+            </div>
+    </div>
+    
+    <script src="script_comandos.js"></script>
+</body>
+</html>
