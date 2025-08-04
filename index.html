@@ -3,49 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Atagox-Bot</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <title>Estado de la Página</title>
+    
+    <meta name="description" content="Información en tiempo real sobre el estado de la página, incluyendo IP, localidad, velocidad de carga y más.">
+    <meta property="og:title" content="Estado de la Página">
+    <meta property="og:description" content="Una página interactiva para ver el estado de tu conexión y el rendimiento del sitio.">
+    <meta property="og:image" content="URL_DE_TU_IMAGEN_DE_VISTA_PREVIA.jpg">
+    <meta property="og:url" content="URL_DE_TU_PAGINA_WEB.com">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="estado.css">
 </head>
 <body>
 
-    <div id="cargando">
-        <div class="cargador"></div>
-        <p class="texto-carga">Cargando...</p>
-    </div>
+    <audio id="background-audio" autoplay loop>
+        <source src="URL_DEL_AUDIO.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
 
-    <div id="contenido" style="display: none;">
-        <div class="panel-container">
-            <div class="imagen-circular-container">
-                <img src="https://zero-two.info/uploads/images/file-1754209626209-751608220.jpg" alt="Imagen de perfil" class="imagen-circular">
-            </div>
-            
-            <h1 class="titulo">Atagox-Bot</h1>
-            <p class="subtitulo">Panel de control y enlaces</p>
-
-            <div class="botones-principales-container">
-                <button id="btn-whatsapp" class="boton-desplegable">Enlaces de WhatsApp</button>
-                <div id="enlaces-whatsapp" class="botones-secundarios-container" style="display:none;">
-                    <a href="https://wa.me/message/TU_ID_DE_CANAL" class="boton-whatsapp canal">Canal</a>
-                    <a href="https://chat.whatsapp.com/TU_ID_DE_GRUPO" class="boton-whatsapp grupo">Grupo</a>
-                    <a href="https://wa.me/NUMERO_DE_TELEFONO?text=Hola%20me%20interesa%20saber%20mas" class="boton-whatsapp numero">Número</a>
-                    <a href="https://wa.me/NUMERO_DE_ATAGOX?text=Hola%20me%20interesa%20saber%20mas" class="boton-whatsapp atagox">Atagox-Bot</a>
-                </div>
-
-                <button id="btn-paginas" class="boton-desplegable">Información del Bot</button>
-                <div id="enlaces-paginas" class="botones-secundarios-container" style="display:none;">
-                    <a href="/comandos" class="boton-pagina">Comandos De Atagox-Bot</a>
-                    <a href="/estado" class="boton-pagina">Estado De La Web</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="creditos">
-            <p>Create Cuervo-Team-Supreme By Atagox-Bot</p>
+    <div class="loader-container">
+        <div class="loading-circle"></div>
+        <div class="loading-text">
+            <span class="letter">C</span><span class="letter">a</span><span class="letter">r</span><span class="letter">g</span><span class="letter">a</span><span class="letter">n</span><span class="letter">d</span><span class="letter">o</span><span class="letter">.</span><span class="letter">.</span><span class="letter">.</span>
         </div>
     </div>
 
-    <audio id="musicaFondo" src="https://zero-two.info/uploads/audios/file-1754242982157-716879300.mp3" loop></audio>
+    <div class="info-panel">
+        <img id="rotating-image" class="rotating-image" src="URL_DE_LA_IMAGEN.png" alt="Imagen giratoria">
+        <div class="info-panel-content">
+            <h1>Bienvenido al Estado de la Página</h1>
+            <p>Aquí puedes ver toda la información de tu conexión.</p>
 
-    <script src="script.js"></script>
+            <h2>Información del Usuario</h2>
+            <div id="ip-info">
+                <p><strong>Dirección IP:</strong> <span id="ip-address">Cargando...</span></p>
+                <p><strong>Localidad:</strong> <span id="localidad">Cargando...</span></p>
+                <p><strong>Hora Local:</strong> <span id="hora-local">Cargando...</span></p>
+            </div>
+            <div id="performance-info">
+                <p><strong>Velocidad de Carga:</strong> <span id="load-speed">Cargando...</span></p>
+                <p><strong>Estado de la Página:</strong> <span id="page-status">Activa</span></p>
+            </div>
+        </div>
+        <div class="moving-text-container">
+            <div class="moving-text">Create Cuervo-Team-Supreme By Atagox-Bot</div>
+        </div>
+    </div>
+
+    <div class="main-content"></div>
+
+    <script src="estado.js"></script>
 </body>
 </html>
