@@ -9,7 +9,7 @@ body {
 }
 
 .fondo-estatico {
-    background: url('') no-repeat center center fixed;
+    background: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg') no-repeat center center fixed;
     background-size: cover;
     filter: blur(8px);
 }
