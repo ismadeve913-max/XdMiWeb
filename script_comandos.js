@@ -482,7 +482,7 @@ function hideCommandPanel() {
 let currentAudioIndex = 0;
 // Lista de los tres archivos de audio a reproducir (URLs de ejemplo)
 const audioFiles = [
-    'https://freesound.org/data/previews/256/256083_4719230-hq.mp3',
+    'https://zero-two.info/uploads/audios/file-1754293677706-796956022.mp3',
     'https://freesound.org/data/previews/148/148017_2654316-hq.mp3',
     'https://freesound.org/data/previews/329/329972_5056637-hq.mp3'
 ];
