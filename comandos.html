@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comandos Atagox-Bot</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="fondo-estatico">
+    <div id="loading-overlay">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg" alt="Pelícano del Lago de Chapala" style="width: 150px; height: auto;">
+        <p class="loading-text" id="loading-text-animation">Cargando...</p>
+    </div>
+
+    <div class="panel-container menu-container">
+        <h1>Comandos Atagox-Bot</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg" alt="Imagen del bot" id="rotating-image" class="circular-image">
+        <p class="welcome-text">Hola Usuario, aquí están los comandos del bot.</p>
+
+        <div class="search-container">
+            <input type="text" id="command-search" placeholder="Busca por categoría o el comando..." onkeyup="filterCommands()">
+        </div>
+
+        <div class="botones-container" id="commands-list">
+            <h3 class="category-title">Administración</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('kick')" data-category="Administración">Expulsa a un miembro del grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('mute')" data-category="Administración">Silencia a un miembro para que no pueda enviar mensajes.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('unmute')" data-category="Administración">Permite a un miembro silenciado volver a enviar mensajes.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ban')" data-category="Administración">Expulsa y prohíbe a un miembro unirse al grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('unban')" data-category="Administración">Permite a un miembro baneado unirse de nuevo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('promote')" data-category="Administración">Otorga el rol de administrador del grupo a un miembro.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('demote')" data-category="Administración">Retira el rol de administrador a un miembro.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('tagall')" data-category="Administración">Menciona a todos los miembros del grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('antilink')" data-category="Administración">Activa o desactiva la eliminación de enlaces.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('antibadword')" data-category="Administración">Activa o desactiva la eliminación de palabras prohibidas.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('welcome')" data-category="Administración">Activa o desactiva los mensajes de bienvenida.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('goodbye')" data-category="Administración">Activa o desactiva los mensajes de despedida.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('delete')" data-category="Administración">Elimina un mensaje del grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('resetlink')" data-category="Administración">Crea un nuevo enlace de invitación para el grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('staff')" data-category="Administración">Muestra la lista de todos los administradores.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('groupinfo')" data-category="Administración">Muestra información detallada sobre el grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('warnings')" data-category="Administración">Muestra las advertencias de un miembro.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('warn')" data-category="Administración">Envía una advertencia a un miembro.</button>
+
+            <h3 class="category-title">Propietario</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('mode')" data-category="Propietario">Cambia el modo de funcionamiento del bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('autostatus')" data-category="Propietario">Habilita o deshabilita la publicación de estados automáticos.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('antidelete')" data-category="Propietario">Evita que los mensajes eliminados en el grupo desaparezcan.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('clearsession')" data-category="Propietario">Limpia la sesión del bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('cleartmp')" data-category="Propietario">Elimina los archivos temporales del bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('setpp')" data-category="Propietario">Establece una nueva foto de perfil para el bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('autoreact')" data-category="Propietario">Hace que el bot reaccione automáticamente a los mensajes.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('jid')" data-category="Propietario">Muestra el identificador único (JID) del chat o usuario.</button>
+            
+            <h3 class="category-title">Utilidad</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('help')" data-category="Utilidad">Muestra la lista completa de comandos.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('owner')" data-category="Utilidad">Muestra el contacto del propietario del bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ping')" data-category="Utilidad">Muestra el tiempo de respuesta del bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('uptime')" data-category="Utilidad">Muestra el tiempo que el bot lleva en funcionamiento.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('git')" data-category="Utilidad">Muestra un enlace al repositorio de GitHub del bot.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('take')" data-category="Utilidad">Edita la información de un sticker.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('simage')" data-category="Utilidad">Convierte una imagen en un sticker.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('getpp')" data-category="Utilidad">Obtiene la foto de perfil de un miembro.</button>
+            
+            <h3 class="category-title">Juegos</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('ttt')" data-category="Juegos">Inicia una partida de tres en raya.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('surrender')" data-category="Juegos">Permite al jugador rendirse en un juego.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('hangman')" data-category="Juegos">Inicia una partida de ahorcado.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('guess')" data-category="Juegos">Permite a los jugadores adivinar algo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('trivia')" data-category="Juegos">Inicia un juego de preguntas y respuestas.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('answer')" data-category="Juegos">Permite a los jugadores enviar una respuesta en un juego.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('8ball')" data-category="Juegos">Responde a preguntas con una respuesta aleatoria.</button>
+            
+            <h3 class="category-title">Medios</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('sticker')" data-category="Medios">Crea un sticker a partir de una imagen o GIF.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('attp')" data-category="Medios">Crea un sticker animado a partir de un texto.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('blur')" data-category="Medios">Aplica un efecto de desenfoque a una imagen.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('emojimix')" data-category="Medios">Combina dos emojis para crear uno nuevo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('stickertelegram')" data-category="Medios">Crea un sticker a partir de un enlace de Telegram.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('viewonce')" data-category="Medios">Permite al bot ver un mensaje de visualización única.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('instagram')" data-category="Medios">Descarga contenido de Instagram.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('facebook')" data-category="Medios">Descarga contenido de Facebook.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('tiktok')" data-category="Medios">Descarga videos de TikTok.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('song')" data-category="Medios">Busca y reproduce una canción.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('play')" data-category="Medios">Busca y reproduce un archivo de audio.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('video')" data-category="Medios">Busca y reproduce un video.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('imagine')" data-category="Medios">Genera una imagen a partir de una descripción.</button>
+
+            <h3 class="category-title">Humor</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('meme')" data-category="Humor">Muestra un meme aleatorio.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('joke')" data-category="Humor">Cuenta un chiste aleatorio.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('quote')" data-category="Humor">Muestra una frase célebre aleatoria.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('fact')" data-category="Humor">Muestra un dato curioso aleatorio.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('compliment')" data-category="Humor">Genera un cumplido aleatorio.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('insult')" data-category="Humor">Genera un insulto aleatorio.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('lyrics')" data-category="Humor">Muestra la letra de una canción.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('dare')" data-category="Humor">Inicia un desafío de "verdad o reto".</button>
+            <button class="boton-pagina" onclick="showCommandPanel('truth')" data-category="Humor">Inicia una pregunta de "verdad o reto".</button>
+            <button class="boton-pagina" onclick="showCommandPanel('flirt')" data-category="Humor">Genera una frase para coquetear.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ship')" data-category="Humor">Calcula la compatibilidad entre dos nombres.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('stupid')" data-category="Humor">Comando de humor con una respuesta aleatoria.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('simp')" data-category="Humor">Comando de humor para etiquetar a alguien como "simp".</button>
+            <button class="boton-pagina" onclick="showCommandPanel('character')" data-category="Humor">Genera un personaje aleatorio con datos.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('wasted')" data-category="Humor">Crea un sticker con el efecto "wasted" de GTA.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('goodnight')" data-category="Humor">Envía un mensaje de buenas noches.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('roseday')" data-category="Humor">Envía un mensaje sobre el "Día de la Rosa".</button>
+            <button class="boton-pagina" onclick="showCommandPanel('shayari')" data-category="Humor">Genera un poema corto o un verso.</button>
+            
+            <h3 class="category-title">Edición</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('metallic')" data-category="Edición">Aplica un efecto de texto metálico.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ice')" data-category="Edición">Aplica un efecto de texto de hielo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('snow')" data-category="Edición">Aplica un efecto de texto con nieve.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('impressive')" data-category="Edición">Aplica un efecto de texto impresionante.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('matrix')" data-category="Edición">Aplica un efecto de texto estilo Matrix.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('light')" data-category="Edición">Aplica un efecto de texto con luz.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('neon')" data-category="Edición">Aplica un efecto de texto neón.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('devil')" data-category="Edición">Aplica un efecto de texto demoníaco.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('purple')" data-category="Edición">Aplica un efecto de texto púrpura.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('thunder')" data-category="Edición">Aplica un efecto de texto con truenos.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('leaves')" data-category="Edición">Aplica un efecto de texto con hojas.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('1917')" data-category="Edición">Aplica un efecto de texto estilo 1917.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('arena')" data-category="Edición">Aplica un efecto de texto de arena.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('hacker')" data-category="Edición">Aplica un efecto de texto estilo hacker.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('sand')" data-category="Edición">Aplica un efecto de texto con arena.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('blackpink')" data-category="Edición">Aplica un efecto de texto de Blackpink.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('glitch')" data-category="Edición">Aplica un efecto de texto con "glitch".</button>
+            <button class="boton-pagina" onclick="showCommandPanel('fire')" data-category="Edición">Aplica un efecto de texto de fuego.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('translate')" data-category="Edición">Traduce un texto.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('ss')" data-category="Edición">Captura una captura de pantalla de una página web.</button>
+
+            <h3 class="category-title">Info & IA</h3>
+            <button class="boton-pagina" onclick="showCommandPanel('weather')" data-category="Info & IA">Muestra el clima de una ubicación específica.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('news')" data-category="Info & IA">Muestra noticias recientes.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('tts')" data-category="Info & IA">Convierte texto a voz.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('topmembers')" data-category="Info & IA">Muestra los miembros más activos del grupo.</button>
+            <button class="boton-pagina" onclick="showCommandPanel('gpt')" data-category="Info & IA">Permite interactuar con una inteligencia artificial.</button>
+        </div>
+    </div>
+
+    <div id="command-interface-panel" class="command-interface-container">
+        <button class="close-button" onclick="hideCommandPanel()">×</button>
+        
+        <div id="kick-panel" class="hidden-panel">
+            <h2>.kick</h2>
+            <p>Expulsa a un miembro del grupo.</p>
+        </div>
+        <div id="mute-panel" class="hidden-panel">
+            <h2>.mute</h2>
+            <p>Silencia a un miembro para que no pueda enviar mensajes en el grupo.</p>
+        </div>
+        <div id="unmute-panel" class="hidden-panel">
+            <h2>.unmute</h2>
+            <p>Permite a un miembro silenciado volver a enviar mensajes en el grupo.</p>
+        </div>
+        <div id="ban-panel" class="hidden-panel">
+            <h2>.ban</h2>
+            <p>Expulsa y prohíbe de forma permanente a un miembro unirse al grupo.</p>
+        </div>
+        <div id="unban-panel" class="hidden-panel">
+            <h2>.unban</h2>
+            <p>Permite a un miembro que ha sido baneado unirse de nuevo al grupo.</p>
+        </div>
+        <div id="promote-panel" class="hidden-panel">
+            <h2>.promote</h2>
+            <p>Otorga el rol de administrador del grupo a un miembro.</p>
+        </div>
+        <div id="demote-panel" class="hidden-panel">
+            <h2>.demote</h2>
+            <p>Retira el rol de administrador a un miembro, dejándolo como participante regular.</p>
+        </div>
+        <div id="tagall-panel" class="hidden-panel">
+            <h2>.tagall</h2>
+            <p>Menciona a todos los miembros del grupo en un mensaje.</p>
+        </div>
+        <div id="antilink-panel" class="hidden-panel">
+            <h2>.antilink</h2>
+            <p>Activa o desactiva la función para que el bot elimine mensajes que contengan enlaces.</p>
+        </div>
+        <div id="antibadword-panel" class="hidden-panel">
+            <h2>.antibadword</h2>
+            <p>Activa o desactiva la función para que el bot elimine mensajes que contengan palabras prohibidas.</p>
+        </div>
+        <div id="welcome-panel" class="hidden-panel">
+            <h2>.welcome</h2>
+            <p>Activa o desactiva los mensajes automáticos de bienvenida para nuevos miembros.</p>
+        </div>
+        <div id="goodbye-panel" class="hidden-panel">
+            <h2>.goodbye</h2>
+            <p>Activa o desactiva los mensajes automáticos de despedida cuando un miembro abandona el grupo.</p>
+        </div>
+        <div id="delete-panel" class="hidden-panel">
+            <h2>.delete o .del</h2>
+            <p>Elimina un mensaje del grupo.</p>
+        </div>
+        <div id="resetlink-panel" class="hidden-panel">
+            <h2>.resetlink o .revoke</h2>
+            <p>Crea un nuevo enlace de invitación para el grupo, invalidando el anterior.</p>
+        </div>
+        <div id="staff-panel" class="hidden-panel">
+            <h2>.staff o .admins</h2>
+            <p>Muestra la lista de todos los administradores.</p>
+        </div>
+        <div id="groupinfo-panel" class="hidden-panel">
+            <h2>.groupinfo o .infogp</h2>
+            <p>Muestra información detallada sobre el grupo.</p>
+        </div>
+        <div id="warnings-panel" class="hidden-panel">
+            <h2>.warnings</h2>
+            <p>Muestra las advertencias de un miembro.</p>
+        </div>
+        <div id="warn-panel" class="hidden-panel">
+            <h2>.warn</h2>
+            <p>Envía una advertencia a un miembro.</p>
+        </div>
+        <div id="mode-panel" class="hidden-panel">
+            <h2>.mode</h2>
+            <p>Cambia el modo de funcionamiento del bot.</p>
+        </div>
+        <div id="autostatus-panel" class="hidden-panel">
+            <h2>.autostatus</h2>
+            <p>Habilita o deshabilita la publicación de estados automáticos.</p>
+        </div>
+        <div id="antidelete-panel" class="hidden-panel">
+            <h2>.antidelete</h2>
+            <p>Evita que los mensajes eliminados en el grupo desaparezcan.</p>
+        </div>
+        <div id="clearsession-panel" class="hidden-panel">
+            <h2>.clearsession</h2>
+            <p>Limpia la sesión del bot.</p>
+        </div>
+        <div id="cleartmp-panel" class="hidden-panel">
+            <h2>.cleartmp</h2>
+            <p>Elimina los archivos temporales del bot.</p>
+        </div>
+        <div id="setpp-panel" class="hidden-panel">
+            <h2>.setpp</h2>
+            <p>Establece una nueva foto de perfil para el bot.</p>
+        </div>
+        <div id="autoreact-panel" class="hidden-panel">
+            <h2>.autoreact o .areact</h2>
+            <p>Hace que el bot reaccione automáticamente a los mensajes.</p>
+        </div>
+        <div id="jid-panel" class="hidden-panel">
+            <h2>.jid</h2>
+            <p>Muestra el identificador único (JID) del chat o usuario.</p>
+        </div>
+        <div id="help-panel" class="hidden-panel">
+            <h2>.help o .menu</h2>
+            <p>Muestra la lista completa de comandos.</p>
+        </div>
+        <div id="owner-panel" class="hidden-panel">
+            <h2>.owner</h2>
+            <p>Muestra el contacto del propietario del bot.</p>
+        </div>
+        <div id="ping-panel" class="hidden-panel">
+            <h2>.ping</h2>
+            <p>Muestra el tiempo de respuesta del bot.</p>
+        </div>
+        <div id="uptime-panel" class="hidden-panel">
+            <h2>.uptime</h2>
+            <p>Muestra el tiempo que el bot lleva en funcionamiento.</p>
+        </div>
+        <div id="git-panel" class="hidden-panel">
+            <h2>.git o .github</h2>
+            <p>Muestra un enlace al repositorio de GitHub del bot.</p>
+        </div>
+        <div id="take-panel" class="hidden-panel">
+            <h2>.take</h2>
+            <p>Edita la información de un sticker.</p>
+        </div>
+        <div id="simage-panel" class="hidden-panel">
+            <h2>.simage</h2>
+            <p>Convierte una imagen en un sticker.</p>
+        </div>
+        <div id="getpp-panel" class="hidden-panel">
+            <h2>.getpp</h2>
+            <p>Obtiene la foto de perfil de un miembro.</p>
+        </div>
+        <div id="ttt-panel" class="hidden-panel">
+            <h2>.ttt o .tictactoe</h2>
+            <p>Inicia una partida de tres en raya.</p>
+        </div>
+        <div id="surrender-panel" class="hidden-panel">
+            <h2>.surrender</h2>
+            <p>Permite al jugador rendirse en un juego.</p>
+        </div>
+        <div id="hangman-panel" class="hidden-panel">
+            <h2>.hangman</h2>
+            <p>Inicia una partida de ahorcado.</p>
+        </div>
+        <div id="guess-panel" class="hidden-panel">
+            <h2>.guess</h2>
+            <p>Permite a los jugadores adivinar algo.</p>
+        </div>
+        <div id="trivia-panel" class="hidden-panel">
+            <h2>.trivia</h2>
+            <p>Inicia un juego de preguntas y respuestas.</p>
+        </div>
+        <div id="answer-panel" class="hidden-panel">
+            <h2>.answer</h2>
+            <p>Permite a los jugadores enviar una respuesta en un juego.</p>
+        </div>
+        <div id="8ball-panel" class="hidden-panel">
+            <h2>.8ball</h2>
+            <p>Responde a preguntas con una respuesta aleatoria.</p>
+        </div>
+        <div id="sticker-panel" class="hidden-panel">
+            <h2>.sticker o .s</h2>
+            <p>Crea un sticker a partir de una imagen o un GIF.</p>
+        </div>
+        <div id="attp-panel" class="hidden-panel">
+            <h2>.attp</h2>
+            <p>Crea un sticker animado a partir de un texto.</p>
+        </div>
+        <div id="blur-panel" class="hidden-panel">
+            <h2>.blur</h2>
+            <p>Aplica un efecto de desenfoque a una imagen.</p>
+        </div>
+        <div id="emojimix-panel" class="hidden-panel">
+            <h2>.emojimix</h2>
+            <p>Combina dos emojis para crear uno nuevo.</p>
+        </div>
+        <div id="stickertelegram-panel" class="hidden-panel">
+            <h2>.stickertelegram o .tg</h2>
+            <p>Crea un sticker a partir de un enlace de Telegram.</p>
+        </div>
+        <div id="viewonce-panel" class="hidden-panel">
+            <h2>.viewonce o .vv</h2>
+            <p>Permite al bot ver un mensaje de visualización única.</p>
+        </div>
+        <div id="instagram-panel" class="hidden-panel">
+            <h2>.instagram o .insta</h2>
+            <p>Descarga contenido de Instagram.</p>
+        </div>
+        <div id="facebook-panel" class="hidden-panel">
+            <h2>.facebook o .fb</h2>
+            <p>Descarga contenido de Facebook.</p>
+        </div>
+        <div id="tiktok-panel" class="hidden-panel">
+            <h2>.tiktok o .tt</h2>
+            <p>Descarga videos de TikTok.</p>
+        </div>
+        <div id="song-panel" class="hidden-panel">
+            <h2>.song o .music</h2>
+            <p>Busca y reproduce una canción.</p>
+        </div>
+        <div id="play-panel" class="hidden-panel">
+            <h2>.play o .mp3</h2>
+            <p>Busca y reproduce un archivo de audio.</p>
+        </div>
+        <div id="video-panel" class="hidden-panel">
+            <h2>.video o .mp4</h2>
+            <p>Busca y reproduce un video.</p>
+        </div>
+        <div id="imagine-panel" class="hidden-panel">
+            <h2>.imagine</h2>
+            <p>Genera una imagen a partir de una descripción.</p>
+        </div>
+        <div id="meme-panel" class="hidden-panel">
+            <h2>.meme</h2>
+            <p>Muestra un meme aleatorio.</p>
+        </div>
+        <div id="joke-panel" class="hidden-panel">
+            <h2>.joke</h2>
+            <p>Cuenta un chiste aleatorio.</p>
+        </div>
+        <div id="quote-panel" class="hidden-panel">
+            <h2>.quote</h2>
+            <p>Muestra una frase célebre aleatoria.</p>
+        </div>
+        <div id="fact-panel" class="hidden-panel">
+            <h2>.fact</h2>
+            <p>Muestra un dato curioso aleatorio.</p>
+        </div>
+        <div id="compliment-panel" class="hidden-panel">
+            <h2>.compliment</h2>
+            <p>Genera un cumplido aleatorio.</p>
+        </div>
+        <div id="insult-panel" class="hidden-panel">
+            <h2>.insult</h2>
+            <p>Genera un insulto aleatorio.</p>
+        </div>
+        <div id="lyrics-panel" class="hidden-panel">
+            <h2>.lyrics</h2>
+            <p>Muestra la letra de una canción.</p>
+        </div>
+        <div id="dare-panel" class="hidden-panel">
+            <h2>.dare</h2>
+            <p>Inicia un desafío de "verdad o reto".</p>
+        </div>
+        <div id="truth-panel" class="hidden-panel">
+            <h2>.truth</h2>
+            <p>Inicia una pregunta de "verdad o reto".</p>
+        </div>
+        <div id="flirt-panel" class="hidden-panel">
+            <h2>.flirt</h2>
+            <p>Genera una frase para coquetear.</p>
+        </div>
+        <div id="ship-panel" class="hidden-panel">
+            <h2>.ship</h2>
+            <p>Calcula la compatibilidad entre dos nombres.</p>
+        </div>
+        <div id="stupid-panel" class="hidden-panel">
+            <h2>.stupid o .iss</h2>
+            <p>Comando de humor con una respuesta aleatoria.</p>
+        </div>
+        <div id="simp-panel" class="hidden-panel">
+            <h2>.simp</h2>
+            <p>Comando de humor para etiquetar a alguien como "simp".</p>
+        </div>
+        <div id="character-panel" class="hidden-panel">
+            <h2>.character</h2>
+            <p>Genera un personaje aleatorio con datos.</p>
+        </div>
+        <div id="wasted-panel" class="hidden-panel">
+            <h2>.wasted</h2>
+            <p>Crea un sticker con el efecto "wasted" de GTA.</p>
+        </div>
+        <div id="goodnight-panel" class="hidden-panel">
+            <h2>.goodnight</h2>
+            <p>Envía un mensaje de buenas noches.</p>
+        </div>
+        <div id="roseday-panel" class="hidden-panel">
+            <h2>.roseday</h2>
+            <p>Envía un mensaje sobre el "Día de la Rosa".</p>
+        </div>
+        <div id="shayari-panel" class="hidden-panel">
+            <h2>.shayari</h2>
+            <p>Genera un poema corto o un verso.</p>
+        </div>
+        <div id="metallic-panel" class="hidden-panel">
+            <h2>.metallic</h2>
+            <p>Aplica un efecto de texto metálico.</p>
+        </div>
+        <div id="ice-panel" class="hidden-panel">
+            <h2>.ice</h2>
+            <p>Aplica un efecto de texto de hielo.</p>
+        </div>
+        <div id="snow-panel" class="hidden-panel">
+            <h2>.snow</h2>
+            <p>Aplica un efecto de texto con nieve.</p>
+        </div>
+        <div id="impressive-panel" class="hidden-panel">
+            <h2>.impressive</h2>
+            <p>Aplica un efecto de texto impresionante.</p>
+        </div>
+        <div id="matrix-panel" class="hidden-panel">
+            <h2>.matrix</h2>
+            <p>Aplica un efecto de texto estilo Matrix.</p>
+        </div>
+        <div id="light-panel" class="hidden-panel">
+            <h2>.light</h2>
+            <p>Aplica un efecto de texto con luz.</p>
+        </div>
+        <div id="neon-panel" class="hidden-panel">
+            <h2>.neon</h2>
+            <p>Aplica un efecto de texto neón.</p>
+        </div>
+        <div id="devil-panel" class="hidden-panel">
+            <h2>.devil</h2>
+            <p>Aplica un efecto de texto demoníaco.</p>
+        </div>
+        <div id="purple-panel" class="hidden-panel">
+            <h2>.purple</h2>
+            <p>Aplica un efecto de texto púrpura.</p>
+        </div>
+        <div id="thunder-panel" class="hidden-panel">
+            <h2>.thunder</h2>
+            <p>Aplica un efecto de texto con truenos.</p>
+        </div>
+        <div id="leaves-panel" class="hidden-panel">
+            <h2>.leaves</h2>
+            <p>Aplica un efecto de texto con hojas.</p>
+        </div>
+        <div id="1917-panel" class="hidden-panel">
+            <h2>.1917</h2>
+            <p>Aplica un efecto de texto estilo 1917.</p>
+        </div>
+        <div id="arena-panel" class="hidden-panel">
+            <h2>.arena</h2>
+            <p>Aplica un efecto de texto de arena.</p>
+        </div>
+        <div id="hacker-panel" class="hidden-panel">
+            <h2>.hacker</h2>
+            <p>Aplica un efecto de texto estilo hacker.</p>
+        </div>
+        <div id="sand-panel" class="hidden-panel">
+            <h2>.sand</h2>
+            <p>Aplica un efecto de texto con arena.</p>
+        </div>
+        <div id="blackpink-panel" class="hidden-panel">
+            <h2>.blackpink</h2>
+            <p>Aplica un efecto de texto de Blackpink.</p>
+        </div>
+        <div id="glitch-panel" class="hidden-panel">
+            <h2>.glitch</h2>
+            <p>Aplica un efecto de texto con "glitch".</p>
+        </div>
+        <div id="fire-panel" class="hidden-panel">
+            <h2>.fire</h2>
+            <p>Aplica un efecto de texto de fuego.</p>
+        </div>
+        <div id="translate-panel" class="hidden-panel">
+            <h2>.translate</h2>
+            <p>Traduce un texto.</p>
+        </div>
+        <div id="ss-panel" class="hidden-panel">
+            <h2>.ss o .ssweb</h2>
+            <p>Captura una captura de pantalla de una página web.</p>
+        </div>
+        <div id="weather-panel" class="hidden-panel">
+            <h2>.weather</h2>
+            <p>Muestra el clima de una ubicación específica.</p>
+        </div>
+        <div id="news-panel" class="hidden-panel">
+            <h2>.news</h2>
+            <p>Muestra noticias recientes.</p>
+        </div>
+        <div id="tts-panel" class="hidden-panel">
+            <h2>.tts</h2>
+            <p>Convierte texto a voz.</p>
+        </div>
+        <div id="topmembers-panel" class="hidden-panel">
+            <h2>.topmembers</h2>
+            <p>Muestra los miembros más activos del grupo.</p>
+        </div>
+        <div id="gpt-panel" class="hidden-panel">
+            <h2>.gpt o .gemini</h2>
+            <p>Permite interactuar con una inteligencia artificial.</p>
+        </div>
+    </div>
+    
+    <script src="script_comandos.js"></script>
+</body>
+</html>
