@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/comandos", "destination": "/especificaciones.html" },
-    { "source": "/estado", "destination": "/comandos.html" }
+    { "source": "/comandos", "destination": "/comandos.html" },
+    { "source": "/estado", "destination": "/estado.html" }
   ]
 }
