@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('background-audio');
     const loaderContainer = document.querySelector('.loader-container');
-    const mainContent = document.querySelector('.main-content');
     const panel = document.querySelector('.info-panel');
     const loadingTextLetters = document.querySelectorAll('.loading-text .letter');
     const rotatingImage = document.getElementById('rotating-image');
@@ -70,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loaderContainer.style.opacity = '0';
         setTimeout(() => {
             loaderContainer.style.display = 'none';
-            mainContent.style.display = 'block';
             mostrarPanel();
         }, 500);
     }, 5000);
