@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuqui - Mi Subpágina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="loading-text">
+            <span class="letter" style="--i:1">C</span>
+            <span class="letter" style="--i:2">a</span>
+            <span class="letter" style="--i:3">r</span>
+            <span class="letter" style="--i:4">g</span>
+            <span class="letter" style="--i:5">a</span>
+            <span class="letter" style="--i:6">n</span>
+            <span class="letter" style="--i:7">d</span>
+            <span class="letter" style="--i:8">o</span>
+            <span class="letter" style="--i:9">.</span>
+            <span class="letter" style="--i:10">.</span>
+            <span class="letter" style="--i:11">.</span>
+        </div>
+    </div>
+
+    <div class="api-panel" id="api-panel">
+        <div class="circular-image">
+            <img src="https://ejemplo.com/ruta-a-tu-imagen.png" alt="Imagen Circular" id="rotating-image">
+        </div>
+        <div class="panel-text">
+            API Keys
+        </div>
+        <p class="button-description">
+            Selecciona una clave para ver y copiar.
+        </p>
+
+        <div class="api-buttons-container">
+            <button class="api-button" data-key="TU_API_KEY_DE_YOUTUBE">YouTube</button>
+            <button class="api-button" data-key="TU_API_KEY_DE_YOUTUBE_2">YouTube 2</button>
+            <button class="api-button" data-key="TU_API_KEY_DE_TWITTER">Twitter</button>
+        </div>
+        
+        <button id="audio-button" class="audio-button">►</button>
+    </div>
+
+    <div class="api-key-display-panel" id="api-key-display-panel">
+        <button class="close-button" id="close-display-panel">X</button>
+        <h3 id="key-title"></h3>
+        <p class="api-key-text" id="api-key-text"></p>
+        <button class="copy-button" id="copy-api-key">Copiar clave</button>
+    </div>
+
+    <audio id="background-audio" src="https://ejemplo.com/ruta-a-tu-audio.mp3" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
