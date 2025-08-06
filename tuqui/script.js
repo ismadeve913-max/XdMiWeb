@@ -24,61 +24,55 @@ window.addEventListener('load', () => {
         }, 1000);
     }, tiempoEspera);
 
-    // Lógica para arrastrar el panel
+    // Lógica para arrastrar el panel (versión para ratón y táctil)
     let isDragging = false;
     let offset = 0;
 
-    topPanel.addEventListener('mousedown', (e) => {
+    function handleStart(e) {
         if (e.target !== audioButton) {
             isDragging = true;
             topPanel.classList.add('dragging');
-            offset = e.clientY - topPanel.offsetTop;
+            
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            offset = clientY - topPanel.offsetTop;
         }
-    });
+    }
 
-    document.addEventListener('mousemove', (e) => {
+    function handleMove(e) {
         if (!isDragging) return;
+
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         e.preventDefault();
-        const newTop = e.clientY - offset;
+        const newTop = clientY - offset;
+        
         if (newTop >= 0 && newTop + topPanel.offsetHeight <= window.innerHeight) {
             topPanel.style.top = newTop + 'px';
         }
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-        topPanel.classList.remove('dragging');
-    });
-
-    // Lógica para la animación de la imagen circular
-    function toggleMovingClass() {
-        const circularImage = document.querySelector('.circular-image');
-        circularImage.classList.toggle('moving');
     }
 
-    setTimeout(() => {
-        setInterval(toggleMovingClass, 10000);
-    }, 10000);
+    function handleEnd() {
+        isDragging = false;
+        topPanel.classList.remove('dragging');
+    }
+
+    // Eventos para ratón
+    topPanel.addEventListener('mousedown', handleStart);
+    document.addEventListener('mousemove', handleMove);
+    document.addEventListener('mouseup', handleEnd);
+
+    // Eventos para dispositivos táctiles
+    topPanel.addEventListener('touchstart', handleStart, { passive: false });
+    document.addEventListener('touchmove', handleMove, { passive: false });
+    document.addEventListener('touchend', handleEnd);
 
     // Lógica para el audio
-    let audioPlayedOnce = false;
-
-    // Al primer clic en cualquier parte de la página, reproduce el audio
-    document.addEventListener('click', () => {
-        if (!audioPlayedOnce) {
-            audio.play();
-            audioPlayedOnce = true;
-        }
-    });
-
-    // Controla el audio al hacer clic en el botón
     audioButton.addEventListener('click', () => {
         if (audio.paused) {
             audio.play();
-            audioButton.textContent = "►";
+            audioButton.textContent = "❚❚";
         } else {
             audio.pause();
-            audioButton.textContent = "❚❚";
+            audioButton.textContent = "►";
         }
     });
 });
