@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/comandos", "destination": "/comandos.html" },
     { "source": "/estado", "destination": "/estado.html" },
-    { "source": "/tuqui", "destination": "/tuqui/index.html" }
+    { "source": "/predators", "destination": "/tuqui/index.html" },
+    { "source": "/awa", "destination": "/awa/index.js" }
   ]
 }
