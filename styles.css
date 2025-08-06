@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
     background-color: #e6f2ff; /* Era rosa, ahora es azul claro */
     margin: 20px;
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+    background-image: url('https://ejemplo.com/ruta-a-tu-imagen-de-fondo.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -20,7 +20,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+    background-image: url('https://ejemplo.com/ruta-a-tu-imagen-de-fondo.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -146,4 +146,61 @@ h1 {
 .dropdown-container {
     display: flex;
     flex-direction: column;
-    margin-top: 15
+    margin-top: 15px;
+}
+
+.dropdown-button {
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    border: none;
+    background-color: blue; /* Era rosa, ahora es azul */
+    color: white; /* Era blanco, ahora es negro */
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-button.active {
+    background-color: #99c8ff; /* Era un rosa más oscuro, ahora es un azul más oscuro */
+}
+
+.child-buttons {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+    padding-left: 15px;
+}
+
+.child-buttons.open {
+    max-height: 500px;
+}
+
+/* Estilos para el botón de audio */
+.audio-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white; /* Era negro, ahora es blanco */
+    background-color: rgba(255, 255, 255, 0.2); /* Era negro, ahora es blanco */
+    color: white; /* Era negro, ahora es blanco */
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.audio-button:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Era negro, ahora es blanco */
+    transform: scale(1.1);
+}
