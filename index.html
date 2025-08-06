@@ -3,56 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Estado de la Página</title>
-    
-    <meta name="description" content="Información en tiempo real sobre el estado de la página, incluyendo IP, localidad, velocidad de carga y más.">
-    <meta property="og:title" content="Estado de la Página">
-    <meta property="og:description" content="Una página interactiva para ver el estado de tu conexión y el rendimiento del sitio.">
-    <meta property="og:image" content="URL_DE_TU_IMAGEN_DE_VISTA_PREVIA.jpg">
-    <meta property="og:url" content="URL_DE_TU_PAGINA_WEB.com">
-    <meta property="og:type" content="website">
+    <title>Tuqui - Mi Subpágina</title>
+    <link rel="stylesheet" href="style.css">
 
-    <link rel="stylesheet" href="estado.css">
+    <meta property="og:title" content="Tuqui - Mi Subpágina">
+    <meta property="og:description" content="Una breve descripción de lo que trata mi increíble página web.">
+    <meta property="og:image" content="https://ejemplo.com/ruta-a-tu-imagen-de-preview.jpg">
+    <meta property="og:url" content="https://ejemplo.com/tuqui">
+    <meta property="og:type" content="website">
 </head>
 <body>
 
-    <audio id="background-audio" autoplay loop>
-        <source src="URL_DEL_AUDIO.mp3" type="audio/mpeg">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
-
     <div class="loader-container">
-        <div class="loading-circle"></div>
-        <div class="loading-text">
-            <span class="letter">C</span><span class="letter">a</span><span class="letter">r</span><span class="letter">g</span><span class="letter">a</span><span class="letter">n</span><span class="letter">d</span><span class="letter">o</span><span class="letter">.</span><span class="letter">.</span><span class="letter">.</span>
+        <div class="loader"></div>
+        <div class="loader-text">
+            <span style="--i:1">C</span>
+            <span style="--i:2">a</span>
+            <span style="--i:3">r</span>
+            <span style="--i:4">g</span>
+            <span style="--i:5">a</span>
+            <span style="--i:6">n</span>
+            <span style="--i:7">d</span>
+            <span style="--i:8">o</span>
+            <span style="--i:9">.</span>
+            <span style="--i:10">.</span>
+            <span style="--i:11">.</span>
         </div>
     </div>
 
-    <div class="info-panel">
-        <img id="rotating-image" class="rotating-image" src="URL_DE_LA_IMAGEN.png" alt="Imagen giratoria">
-        <div class="info-panel-content">
-            <h1>Bienvenido al Estado de la Página</h1>
-            <p>Aquí puedes ver toda la información de tu conexión.</p>
+    <div class="top-panel" id="topPanel">
+        <div class="circular-image">
+            <img src="https://ejemplo.com/ruta-a-tu-imagen.png" alt="Imagen Circular">
+        </div>
+        <div class="panel-text">
+            ¡Bienvenido a Tuqui!
+        </div>
+        <p class="button-description">
+            Una pequeña descripción en texto rosa.
+        </p>
 
-            <h2>Información del Usuario</h2>
-            <div id="ip-info">
-                <p><strong>Dirección IP:</strong> <span id="ip-address">Cargando...</span></p>
-                <p><strong>Localidad:</strong> <span id="localidad">Cargando...</span></p>
-                <p><strong>Hora Local:</strong> <span id="hora-local">Cargando...</span></p>
+        <div class="dropdown-container">
+            <button class="dropdown-button" data-target="children-1">Comunicate...</button>
+            <div id="children-1" class="child-buttons">
+                <a href="https://wa.me/tunumerodetelefono" target="_blank" class="action-button">WhatsApp 1</a>
+                <a href="https://wa.me/tunumerodetelefono" target="_blank" class="action-button">WhatsApp 2</a>
+                <a href="https://wa.me/tunumerodetelefono" target="_blank" class="action-button">WhatsApp 3</a>
+                <a href="https://wa.me/tunumerodetelefono" target="_blank" class="action-button">WhatsApp 4</a>
             </div>
-            <div id="performance-info">
-                <p><strong>Velocidad de Carga:</strong> <span id="load-speed">Cargando...</span></p>
-                <p><strong>Estado de la Página:</strong> <span id="page-status">Activa</span></p>
+
+            <button class="dropdown-button" data-target="children-2">Cuervo Webs...</button>
+            <div id="children-2" class="child-buttons">
+                <a href="/comandos" target="_blank" class="action-button">Comandos</a>
+                <a href="/estado" target="_blank" class="action-button">Estado</a>
+                <a href="/apikey" target="_blank" class="action-button">API Key</a>
+            </div>
+
+            <button class="dropdown-button" data-target="children-3">Otras Webs...</button>
+            <div id="children-3" class="child-buttons">
+                <a href="/megumin" target="_blank" class="action-button">Megumin</a>
+                <a href="/waguri" target="_blank" class="action-button">Waguri</a>
+                <a href="/predators" target="_blank" class="action-button">Predators</a>
             </div>
         </div>
-        <div class="moving-text-container">
-            <div class="moving-text">Create Cuervo-Team-Supreme By Atagox-Bot</div>
-        </div>
+
+        <button id="audioButton" class="audio-button">►</button>
     </div>
 
-    <div class="main-content"></div>
+    <audio id="backgroundAudio" src="https://ejemplo.com/ruta-a-tu-audio.mp3" loop></audio>
 
-    <script src="estado.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
