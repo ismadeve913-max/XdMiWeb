@@ -68,7 +68,7 @@ h1 {
 /* Estilos para el panel superior */
 .top-panel {
     position: absolute;
-    top: 0;
+    top: 10%; /* Posición un poco más abajo */
     left: 50%;
     transform: translateX(-50%);
     max-width: 400px;
