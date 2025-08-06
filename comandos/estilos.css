@@ -1,0 +1,268 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    transition: background-color 0.5s ease;
+    background-color: #121212;
+    overflow-x: hidden;
+}
+
+.fondo-estatico {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px);
+}
+
+.panel-container {
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 90%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.menu-container {
+    padding-bottom: 250px; /* Para dejar espacio al panel inferior */
+}
+
+.botones-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.boton-pagina {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 15px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.boton-pagina:hover {
+    background-color: #555;
+    transform: translateY(-3px);
+    border-color: #007bff;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+.category-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #007bff;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+.welcome-text {
+    text-align: center;
+    font-style: italic;
+    color: #aaa;
+}
+
+#rotating-image {
+    display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #007bff;
+    transition: transform 1s ease-in-out;
+}
+
+#rotating-image.spin-active {
+    animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.command-interface-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(18, 18, 18, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid #007bff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 200px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.command-interface-container.active {
+    transform: translateY(0);
+}
+
+.command-interface-container.glowing-border {
+    animation: glowing-border 1.5s infinite alternate;
+}
+
+@keyframes glowing-border {
+    from {
+        box-shadow: 0 -5px 15px rgba(0, 123, 255, 0.4);
+    }
+    to {
+        box-shadow: 0 -5px 25px rgba(0, 123, 255, 0.8);
+    }
+}
+
+.dynamic-panel-content h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #fff;
+    text-shadow: 0 0 10px #007bff;
+    text-align: center;
+}
+
+.dynamic-panel-content p {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #aaa;
+    text-align: center;
+    max-width: 90%;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover {
+    color: #ff4d4d;
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#command-search {
+    width: 80%;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    transition: box-shadow 0.3s;
+}
+
+#command-search:focus {
+    outline: none;
+    box-shadow: 0 0 8px #007bff;
+}
+
+/* Pantalla de carga */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pelecanus_occidentalis_-_Lake_Chapala.jpg/1200px-Pelecanus_occidentalis_-_Lake_Chapala.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro ligeramente transparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 210; /* Asegura que esté por encima de todo */
+    opacity: 1;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #007bff;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+.loading-text {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-top: 0;
+}
+
+.moving-letter {
+    display: inline-block;
+    animation: move-up-down 1s infinite alternate;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes move-up-down {
+    0% {
+        transform: translateY(0);
+        color: #fff;
+    }
+    100% {
+        transform: translateY(-10px);
+        color: #007bff;
+    }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glowing-border {
+    from {
+        box-shadow: 0 -5px 15px rgba(0, 123, 255, 0.4);
+    }
+    to {
+        box-shadow: 0 -5px 25px rgba(0, 123, 255, 0.8);
+    }
+}
