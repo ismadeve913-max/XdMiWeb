@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const audioButton = document.getElementById('audio-button');
 
 
-    // Lógica para la pantalla de carga (se mantiene igual)
+    // Lógica para la pantalla de carga
     const MINIMO_TIEMPO_CARGA = 5000;
     let minLoadTimeReached = false;
 
