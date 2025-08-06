@@ -1,51 +1,45 @@
-:root {
-    --color-principal: #3498db;
-    --color-secundario: #25d366;
-    --color-terciario: #e74c3c;
-    --duracion-animacion-brillo: 30s;
-}
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+    font-family: sans-serif;
+    background-color: #e6f2ff; /* Era rosa, ahora es azul claro */
+    margin: 20px;
+    background-image: url('https://ejemplo.com/ruta-a-tu-imagen-de-fondo.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-    color: #fff;
-    overflow: hidden;
+    background-attachment: fixed;
 }
 
-/* Pantalla de carga */
-#cargando {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h1 {
+    color: #fff; /* Era negro, ahora es blanco */
+}
+
+/* Estilos para la pantalla de carga */
+.loader-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://zero-two.info/uploads/images/file-1754163984570-289924681.jpg');
+    background-image: url('https://ejemplo.com/ruta-a-tu-imagen-de-fondo.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-out;
 }
 
-.cargador {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid var(--color-principal);
+.loader {
+    border: 6px solid rgba(255, 255, 255, 0.3); /* Era negro, ahora es blanco */
+    border-top: 6px solid #fff; /* Era negro, ahora es blanco */
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1.5s linear infinite;
-    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
 }
 
 @keyframes spin {
@@ -53,195 +47,103 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-.texto-carga {
-    /* ¡CAMBIO AQUÍ! Texto de carga en color negro */
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    animation: pulso 1.5s ease-in-out infinite;
-}
-
-@keyframes pulso {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-/* Contenido principal */
-#contenido {
-    display: none;
-    text-align: center;
-    padding: 20px;
-}
-
-.panel-container {
-    width: 100%;
-    max-width: 500px;
-    background-color: rgba(20, 20, 20, 0.5);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+.loader-text {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    font-size: 2em;
+    color: #fff; /* Era negro, ahora es blanco */
+    letter-spacing: 2px;
 }
 
-.titulo {
-    font-size: 2.8em;
-    margin-bottom: 5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+.loader-text span {
+    display: inline-block;
+    animation: snake 1.5s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
 }
 
-.subtitulo {
-    font-size: 1.2em;
-    margin-top: 0;
-    margin-bottom: 30px;
-    opacity: 0.8;
+@keyframes snake {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-/* Imagen circular con animación */
-.imagen-circular-container {
-    width: 180px;
-    height: 180px;
+/* Estilos para el panel superior */
+.top-panel {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
+    background-color: rgba(0, 0, 0, 0.5); /* Era blanco, ahora es negro */
+    padding: 20px;
+    text-align: center;
+    cursor: grab;
+    z-index: 1000;
+    box-shadow: 0 0 15px 5px blue; /* Era rosa, ahora es azul */
+    color: white; /* Era negro, ahora es blanco */
+    border-radius: 20px;
+    transition: max-height 0.5s ease;
+}
+
+.top-panel.dragging {
+    cursor: grabbing;
+}
+
+/* Estilos para la imagen circular */
+.circular-image {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 auto 30px;
-    border: 5px solid #fff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-    animation: rotacion-larga 30s linear infinite;
+    margin: 0 auto 10px;
+    position: relative;
+    box-shadow: 0 0 10px blue; /* Era rosa, ahora es azul */
+    animation: rotate 20s linear infinite;
 }
 
-@keyframes rotacion-larga {
-    0% { transform: rotate(0deg); }
-    16.67% { transform: rotate(360deg); } /* Gira en los primeros 5s (5/30 = 16.67%) */
-    100% { transform: rotate(360deg); }
-}
-
-.imagen-circular {
+.circular-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
 
-/* Contenedor de botones */
-.botones-principales-container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: 100%;
+/* Animación de rotación */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.botones-secundarios-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    animation: fadein 0.5s ease-out;
+/* Estilos para el texto */
+.panel-text {
+    font-size: 1.5em;
+    color: white; /* Era negro, ahora es blanco */
 }
 
-@keyframes fadein {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Estilos de botones */
-.boton-desplegable,
-.boton-whatsapp,
-.boton-pagina {
-    padding: 15px;
-    border-radius: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: none;
-    color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    width: 100%; /* Asegura que los botones ocupen todo el ancho */
-}
-
-.boton-desplegable:hover,
-.boton-whatsapp:hover,
-.boton-pagina:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-}
-
-/* Animación de contorno para los botones principales */
-.boton-desplegable {
-    position: relative;
-    background-color: rgba(52, 152, 219, 0.5);
-    overflow: hidden;
-    color: #fff;
-    font-size: 1.1em;
-}
-
-.boton-desplegable::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(transparent, transparent, transparent, #fff);
-    animation: brillar var(--duracion-animacion-brillo) linear infinite;
-}
-
-@keyframes brillar {
-    0% { transform: rotate(0deg); opacity: 1; }
-    66.67% { transform: rotate(360deg); opacity: 1; } /* 20s de brillo */
-    70% { opacity: 0.5; }
-    75% { opacity: 1; }
-    80% { opacity: 0.5; }
-    85% { opacity: 1; }
-    90% { opacity: 0.5; }
-    95% { opacity: 1; }
-    100% { opacity: 0; } /* 10s de parpadeo y apagado */
-}
-
-/* Estilos de botones de WhatsApp */
-.canal { background-color: #25d366; }
-.grupo { background-color: #128c7e; }
-.numero { background-color: #075e54; }
-.atagox { background-color: #3f51b5; }
-.boton-pagina { background-color: #6a1b9a; } /* Color para Comandos y Estado */
-
-/* Créditos en movimiento */
-.creditos {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    /* ¡CAMBIO AQUÍ! Texto de créditos en color negro */
-    color: #000;
+/* Estilos para la descripción en texto rosa */
+.button-description {
+    color: blue; /* Era rosa, ahora es azul */
     font-size: 0.9em;
+    margin-top: 5px;
 }
 
-.creditos p {
-    display: inline-block;
-    padding-left: 100%;
-    animation: mover-creditos 15s linear infinite;
+/* Estilos para el botón de acción genérico */
+.action-button {
+    display: block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Era blanco, ahora es negro */
+    color: white; /* Era negro, ahora es blanco */
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
-@keyframes mover-creditos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+.action-button:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 0, 0.7); /* Era blanco, ahora es negro */
 }
 
-@media (max-width: 600px) {
-    .panel-container {
-        padding: 20px;
-        max-width: 90%;
-    }
-    .titulo { font-size: 2em; }
-    .subtitulo { font-size: 1em; }
-    .imagen-circular-container {
-        width: 120px;
-        height: 120px;
-    }
-    .boton-desplegable, .boton-whatsapp, .boton-pagina {
-        font-size: 0.9em;
-    }
-}
+/* Estilos para los nuevos botones desplegables */
+.dropdown-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15
