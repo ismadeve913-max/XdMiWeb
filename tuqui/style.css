@@ -2,6 +2,11 @@ body {
     font-family: sans-serif;
     background-color: #f0f8ff;
     margin: 20px;
+    background-image: url('https://zero-two.info/uploads/images/file-1754459580422-401821739.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1 {
@@ -64,8 +69,9 @@ h1 {
 .top-panel {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 400px;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     text-align: center;
@@ -73,6 +79,7 @@ h1 {
     z-index: 1000;
     box-shadow: 0 0 15px 5px red;
     color: black;
+    border-radius: 20px;
 }
 
 .top-panel.dragging {
@@ -88,6 +95,7 @@ h1 {
     margin: 0 auto 10px;
     position: relative;
     box-shadow: 0 0 10px red;
+    animation: rotate 20s linear infinite;
 }
 
 .circular-image img {
@@ -96,24 +104,16 @@ h1 {
     object-fit: cover;
 }
 
-/* Animación de movimiento */
-@keyframes move {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(10px); }
-    100% { transform: translateX(0); }
+/* Animación de rotación */
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.moving {
-    animation: move 5s ease-in-out infinite alternate;
-}
-
-/* Estilos para el texto con contorno */
+/* Estilos para el texto */
 .panel-text {
     font-size: 1.5em;
-    color: black;
-    -webkit-text-stroke: 2px white;
-    text-stroke: 2px white;
-    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+    color: white;
 }
 
 /* Estilos para la descripción en texto rojo */
@@ -121,9 +121,6 @@ h1 {
     color: red;
     font-size: 0.9em;
     margin-top: 5px;
-    -webkit-text-stroke: 1px white;
-    text-stroke: 1px white;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* Estilos para el botón de acción genérico */
