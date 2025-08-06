@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Comandos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <img src="https://telegra.ph/file/0c9a5933614271811e54a.jpg" alt="Loading Image" class="loading-image">
+            <h3 class="loading-text">Cargando comandos...</h3>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="header-section">
+            <img src="https://telegra.ph/file/0c9a5933614271811e54a.jpg" alt="Icono" id="rotating-image">
+            <h1>Lista de Comandos</h1>
+            <div class="search-bar">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="command-search" placeholder="Buscar comando...">
+            </div>
+        </div>
+        <div class="command-buttons-section" id="botones-container">
+            </div>
+        <div class="command-interface-container" id="command-interface-container">
+            <button id="close-panel">×</button>
+            <div id="dynamic-panel-content">
+                </div>
+        </div>
+    </div>
+
+    <script src="script_comandos.js"></script>
+</body>
+</html>
