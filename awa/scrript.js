@@ -1,28 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Aquí puedes inicializar cualquier cosa que necesites para tu página
-});
-
-window.addEventListener('load', () => {
+    // Código para la pantalla de carga
     const loader = document.querySelector('.loader-container');
-    const topPanel = document.getElementById('topPanel');
-    const audio = document.getElementById('backgroundAudio');
-    const audioButton = document.getElementById('audioButton');
+    const MINIMO_TIEMPO_CARGA = 3000; // 3 segundos
+    
+    let minLoadTimeReached = false;
+    let pageLoaded = false;
 
-    // Duración de la pantalla de carga
-    const MINIMO_TIEMPO_CARGA = 3000;
-    const tiempoInicio = Date.now();
-    const tiempoFin = Date.now();
-    const tiempoTranscurrido = tiempoFin - tiempoInicio;
-    const tiempoEspera = tiempoTranscurrido < MINIMO_TIEMPO_CARGA
-        ? MINIMO_TIEMPO_CARGA - tiempoTranscurrido
-        : 0;
-
+    // Se establece la bandera cuando se cumple el tiempo mínimo
     setTimeout(() => {
+        minLoadTimeReached = true;
+        if (pageLoaded) {
+            hideLoader();
+        }
+    }, MINIMO_TIEMPO_CARGA);
+
+    // Se establece la bandera cuando la página ha terminado de cargar
+    window.addEventListener('load', () => {
+        pageLoaded = true;
+        if (minLoadTimeReached) {
+            hideLoader();
+        }
+    });
+
+    function hideLoader() {
         loader.style.opacity = '0';
         setTimeout(() => {
             loader.style.display = 'none';
         }, 1000);
-    }, tiempoEspera);
+    }
+    
+    // --- Comienza el resto de la lógica de tu página ---
+    const topPanel = document.getElementById('topPanel');
+    const audio = document.getElementById('backgroundAudio');
+    const audioButton = document.getElementById('audioButton');
 
     // Lógica para arrastrar el panel (versión para ratón y táctil)
     let isDragging = false;
