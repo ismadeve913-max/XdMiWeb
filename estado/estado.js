@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const panel = document.querySelector('.info-panel');
     const loadingTextLetters = document.querySelectorAll('.loading-text .letter');
     const rotatingImage = document.getElementById('rotating-image');
+    const copyButtons = document.querySelectorAll('.copy-button'); // Nuevo selector para los botones de copiado
 
     loadingTextLetters.forEach((letter, index) => {
         letter.style.setProperty('--i', index);
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         currentRotation += 360;
         rotatingImage.style.transform = `rotate(${currentRotation}deg)`;
-    }, 30000); // 30000 milisegundos = 30 segundos
+    }, 30000);
 
     async function getIpAndLocation() {
         try {
@@ -64,6 +65,23 @@ document.addEventListener('DOMContentLoaded', () => {
             loadSpeedElement.textContent = 'No disponible';
         }
     }
+    
+    // Nueva función para manejar el copiado
+    const handleCopyClick = (e) => {
+        const targetId = e.target.dataset.target;
+        const textToCopy = document.getElementById(targetId).textContent;
+        
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert(`Texto copiado: "${textToCopy}"`);
+        }).catch(err => {
+            console.error('Error al copiar el texto:', err);
+        });
+    };
+
+    // Asignar el evento de clic a cada botón de copiado
+    copyButtons.forEach(button => {
+        button.addEventListener('click', handleCopyClick);
+    });
 
     setTimeout(() => {
         loaderContainer.style.opacity = '0';
