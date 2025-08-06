@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/comandos", "destination": "/comandos.html" },
+    { "source": "/comandos", "destination": "/comandos/comandos.html" },
     { "source": "/estado", "destination": "/estado.html" },
     { "source": "/predators", "destination": "/tuqui/index.html" },
     { "source": "/awa", "destination": "/awa/index.js" }
