@@ -138,7 +138,7 @@ h1 {
 /* Panel que se desliza desde abajo */
 .api-key-display-panel {
     position: fixed;
-    bottom: -100%; /* Oculto por defecto */
+    bottom: -100%;
     left: 0;
     width: 100%;
     padding: 20px;
@@ -173,7 +173,7 @@ h1 {
 }
 
 .api-key-text {
-    word-wrap: break-word; /* Para que las claves largas no desborden */
+    word-wrap: break-word;
     margin-bottom: 20px;
 }
 
