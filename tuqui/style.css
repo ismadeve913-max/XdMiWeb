@@ -1,0 +1,169 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f8ff;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilos para la pantalla de carga */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://example.com/ruta-a-tu-imagen-de-fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.loader {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-top: 6px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-text {
+    display: flex;
+    font-size: 2em;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.loader-text span {
+    display: inline-block;
+    animation: snake 1.5s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes snake {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Estilos para el panel superior */
+.top-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    text-align: center;
+    cursor: grab;
+    z-index: 1000;
+    box-shadow: 0 0 15px 5px red;
+    color: black;
+}
+
+.top-panel.dragging {
+    cursor: grabbing;
+}
+
+/* Estilos para la imagen circular */
+.circular-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 10px;
+    position: relative;
+    box-shadow: 0 0 10px red;
+}
+
+.circular-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Animación de movimiento */
+@keyframes move {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
+.moving {
+    animation: move 5s ease-in-out infinite alternate;
+}
+
+/* Estilos para el texto con contorno */
+.panel-text {
+    font-size: 1.5em;
+    color: black;
+    -webkit-text-stroke: 2px white;
+    text-stroke: 2px white;
+    text-shadow: -2px -2px 0 white, 2px -2px 0 white, -2px 2px 0 white, 2px 2px 0 white;
+}
+
+/* Estilos para la descripción en texto rojo */
+.button-description {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+    -webkit-text-stroke: 1px white;
+    text-stroke: 1px white;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Estilos para el botón de acción genérico */
+.action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.action-button:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos para el botón de audio */
+.audio-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.audio-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
