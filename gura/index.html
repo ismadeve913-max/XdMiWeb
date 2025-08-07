@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurabot - Comandos</title>
+    <link rel="stylesheet" href="gura/style.css">
+</head>
+<body>
+
+    <div class="loader-container">
+        <div class="loader"></div>
+        <div class="loading-text">
+            <span class="letter" style="--i:1">C</span>
+            <span class="letter" style="--i:2">a</span>
+            <span class="letter" style="--i:3">r</span>
+            <span class="letter" style="--i:4">g</span>
+            <span class="letter" style="--i:5">a</span>
+            <span class="letter" style="--i:6">n</span>
+            <span class="letter" style="--i:7">d</span>
+            <span class="letter" style="--i:8">o</span>
+            <span class="letter" style="--i:9">.</span>
+            <span class="letter" style="--i:10">.</span>
+            <span class="letter" style="--i:11">.</span>
+        </div>
+    </div>
+
+    <div class="gurabot-panel" id="gurabot-panel">
+        <div class="circular-image">
+            <img src="https://ejemplo.com/ruta-a-la-imagen-de-gurabot.png" alt="Imagen Gurabot" id="rotating-image">
+        </div>
+        <div class="panel-text">
+            Gurabot - 🌊
+        </div>
+        <p class="button-description">
+            Menú de comandos disponibles:
+        </p>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar comando...">
+            <button id="search-button">Buscar</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Subs Bot ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".bots">.bots</button>
+            <button class="gurabot-button" data-command=".qr">.qr</button>
+            <button class="gurabot-button" data-command=".code">.code</button>
+            <button class="gurabot-button" data-command=".setbanner">.setbanner</button>
+            <button class="gurabot-button" data-command=".setname">.setname</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Downloaders ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".undefined">.undefined</button>
+            <button class="gurabot-button" data-command=".mega">.mega</button>
+            <button class="gurabot-button" data-command=".apk">.apk</button>
+            <button class="gurabot-button" data-command=".apkmod">.apkmod</button>
+            <button class="gurabot-button" data-command=".thread">.thread ⭐</button>
+            <button class="gurabot-button" data-command=".tiktoksearch <texto>">.tiktoksearch &lt;texto&gt; ⭐</button>
+            <button class="gurabot-button" data-command=".mediafire">.mediafire</button>
+            <button class="gurabot-button" data-command=".p54">.p54</button>
+            <button class="gurabot-button" data-command=".tiktokvid">.tiktokvid</button>
+            <button class="gurabot-button" data-command=".tiktok <enlace>">.tiktok &lt;enlace&gt;</button>
+            <button class="gurabot-button" data-command=".ytmp4doc">.ytmp4doc</button>
+            <button class="gurabot-button" data-command=".ig <url>">.ig &lt;url&gt;</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Herramientas ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".lid">.lid</button>
+            <button class="gurabot-button" data-command=".tts <texto>">.tts &lt;texto&gt;</button>
+            <button class="gurabot-button" data-command=".errores">.errores</button>
+            <button class="gurabot-button" data-command=".wm">.wm</button>
+            <button class="gurabot-button" data-command=".deepseek">.deepseek</button>
+            <button class="gurabot-button" data-command=".undefined">.undefined</button>
+            <button class="gurabot-button" data-command=".ver">.ver</button>
+            <button class="gurabot-button" data-command=".ss <página web>">.ss &lt;página web&gt;</button>
+            <button class="gurabot-button" data-command=".tourl">.tourl</button>
+            <button class="gurabot-button" data-command=".ver">.ver</button>
+        </div>
+        
+        <div class="command-category-title">❝ ✦ Owner ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".autoadmin">.autoadmin</button>
+            <button class="gurabot-button" data-command=".dsowner">.dsowner</button>
+            <button class="gurabot-button" data-command=".join <chat.whatsapp.com> <dias>">.join &lt;chat.whatsapp.com&gt; &lt;dias&gt;</button>
+            <button class="gurabot-button" data-command=".restart">.restart</button>
+            <button class="gurabot-button" data-command=".sendmeme">.sendmeme</button>
+            <button class="gurabot-button" data-command=".update">.update</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Info ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".infobot">.infobot</button>
+            <button class="gurabot-button" data-command=".stats">.stats</button>
+            <button class="gurabot-button" data-command=".sugerir < cosas pa la botsita >">.sugerir &lt;cosas pa la botsita&gt;</button>
+            <button class="gurabot-button" data-command=".horario">.horario</button>
+        </div>
+        
+        <div class="command-category-title">❝ ✦ Grupos ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".on welcome">.on welcome</button>
+            <button class="gurabot-button" data-command=".off welcome">.off welcome</button>
+            <button class="gurabot-button" data-command=".on antilink">.on antilink</button>
+            <button class="gurabot-button" data-command=".off antilink">.off antilink</button>
+            <button class="gurabot-button" data-command=".del">.del</button>
+            <button class="gurabot-button" data-command=".delete">.delete</button>
+            <button class="gurabot-button" data-command=".demote @tag">.demote @tag</button>
+            <button class="gurabot-button" data-command=".promote 593xxx">.promote 593xxx</button>
+            <button class="gurabot-button" data-command=".promote @usuario">.promote @usuario</button>
+            <button class="gurabot-button" data-command=".promote responder chat">.promote responder chat</button>
+            <button class="gurabot-button" data-command=".on reaccion">.on reaccion</button>
+            <button class="gurabot-button" data-command=".off reaccion">.off reaccion</button>
+            <button class="gurabot-button" data-command=".kick">.kick</button>
+            <button class="gurabot-button" data-command=".top <texto>">.top &lt;texto&gt;</button>
+            <button class="gurabot-button" data-command=".invocar <mensaje opcional>">.invocar &lt;mensaje opcional&gt;</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Buscadores ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".pinterest <texto>">.pinterest &lt;texto&gt;</button>
+            <button class="gurabot-button" data-command=".tiktoksearch">.tiktoksearch</button>
+            <button class="gurabot-button" data-command=".yts">.yts</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Stickers ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".qc">.qc</button>
+            <button class="gurabot-button" data-command=".sticker">.sticker</button>
+            <button class="gurabot-button" data-command=".stickersearch <texto>">.stickersearch &lt;texto&gt;</button>
+        </div>
+
+        <div class="command-category-title">❝ ✦ Inteligencia Artificial ❞</div>
+        <div class="gurabot-buttons-container">
+            <button class="gurabot-button" data-command=".dalle <texto>">.dalle &lt;texto&gt;</button>
+        </div>
+
+    </div>
+
+    <audio id="background-audio" src="https://ejemplo.com/ruta-a-tu-audio.mp3" loop></audio>
+
+    <script src="gura/script.js"></script>
+</body>
+</html>
