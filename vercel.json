@@ -5,6 +5,7 @@
     { "source": "/predators", "destination": "/tuqui/index.html" },
     { "source": "/waguri", "destination": "/awa/index.html" },
     { "source": "/megumin", "destination": "/megumin/comandos.html" },
-    { "source": "/apikey", "destination": "/apikey/index.html" }
+    { "source": "/apikey", "destination": "/apikey/index.html" },
+    { "source": "/gurabot", "destination": "/gura/index.html" }
   ]
 }
