@@ -153,24 +153,49 @@ h1 {
     margin-top: 5px;
 }
 
-/* Estilos para los títulos de categoría */
+/* Estilos para los títulos de categoría (ahora botones) */
 .command-category-title {
+    width: 100%;
+    background-color: transparent;
+    border: none;
     color: #99c8ff;
     font-size: 1.2em;
     font-weight: bold;
     margin-top: 25px;
     margin-bottom: 10px;
     text-align: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
-/* Estilos para los botones de Gurabot */
+.command-category-title:hover {
+    color: white;
+}
+
+/* Estilos para los contenedores de botones */
 .gurabot-buttons-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: 5px;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
 }
 
+/* Estado contraído de los contenedores de botones */
+.gurabot-buttons-container.collapsed {
+    max-height: 0;
+    opacity: 0;
+}
+
+/* Estado expandido de los contenedores de botones */
+.gurabot-buttons-container.expanded {
+    max-height: 500px; /* Un valor lo suficientemente grande para que quepan todos los botones */
+    opacity: 1;
+}
+
+
+/* Estilos para los botones de Gurabot */
 .gurabot-button {
     background-color: blue;
     color: white;
@@ -213,9 +238,14 @@ h1 {
     right: 15px;
     background: none;
     border: none;
-    color: white;
+    color: red; /* Botón de cierre en color rojo */
     font-size: 1.5em;
     cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.command-info-panel .close-button:hover {
+    color: darkred;
 }
 
 .command-info-panel h3 {
