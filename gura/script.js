@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const musicToggleButton = document.getElementById('music-toggle-button');
 
+    // Selectores de los botones de categoría
+    const categoryButtons = document.querySelectorAll('.command-category-title');
+
     // Selectores del nuevo panel de información
     const commandInfoPanel = document.getElementById('command-info-panel');
     const closeCommandPanelButton = document.getElementById('close-command-panel');
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             audio.play();
             isPlaying = true;
-            musicToggleButton.style.color = '#99c8ff'; // Cambia el color para indicar que está activo
+            musicToggleButton.style.color = '#99c8ff';
         }
     });
 
@@ -114,6 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
         currentRotation += 360;
         rotatingImage.style.transform = `rotate(${currentRotation}deg)`;
     }, 30000);
+
+    // Lógica de los botones de categoría (desplegable)
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetId = button.dataset.target;
+            const targetContainer = document.getElementById(targetId);
+            
+            if (targetContainer) {
+                targetContainer.classList.toggle('collapsed');
+                targetContainer.classList.toggle('expanded');
+            }
+        });
+    });
 
     // Lógica del buscador en tiempo real
     searchInput.addEventListener('input', () => {
@@ -128,11 +144,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Lógica para ocultar/mostrar títulos de categoría
-        const categories = document.querySelectorAll('.command-category-title');
-        categories.forEach(category => {
-            const buttonContainer = category.nextElementSibling;
+        // Lógica para ocultar/mostrar títulos de categoría y colapsar/expandir contenedores
+        categoryButtons.forEach(categoryButton => {
+            const buttonContainer = document.getElementById(categoryButton.dataset.target);
             let hasVisibleButtons = false;
+            
             if (buttonContainer) {
                 const buttons = buttonContainer.querySelectorAll('.gurabot-button');
                 buttons.forEach(button => {
@@ -140,13 +156,31 @@ document.addEventListener('DOMContentLoaded', () => {
                         hasVisibleButtons = true;
                     }
                 });
-            }
-            if (hasVisibleButtons) {
-                category.style.display = 'block';
-            } else {
-                category.style.display = 'none';
+                
+                if (hasVisibleButtons) {
+                    categoryButton.style.display = 'block';
+                    if (query) { // Si hay una búsqueda activa, expande la categoría
+                        buttonContainer.classList.remove('collapsed');
+                        buttonContainer.classList.add('expanded');
+                    } else { // Si no hay búsqueda, mantiene el estado actual (contraído/expandido)
+                        // No hace nada para preservar el estado.
+                    }
+                } else {
+                    categoryButton.style.display = 'none';
+                }
             }
         });
+
+        // Si el buscador está vacío, colapsa todas las categorías
+        if (!query) {
+            document.querySelectorAll('.gurabot-buttons-container.expanded').forEach(container => {
+                container.classList.remove('expanded');
+                container.classList.add('collapsed');
+            });
+            document.querySelectorAll('.command-category-title').forEach(categoryButton => {
+                categoryButton.style.display = 'block';
+            });
+        }
     });
 
     // Lógica de los botones de Gurabot
